@@ -132,7 +132,7 @@ def send_login_alert(user_key, user_name, expiry_date):
     now = datetime.now()
     diff = exp_dt - now
     total_seconds = diff.total_seconds()
-        if total_seconds <= 0: return "Expired"
+    if total_seconds <= 0: return "Expired"
     total_hours = int(total_seconds // 3600)
     minutes = int((total_seconds % 3600) // 60)
     if total_hours < 24:
