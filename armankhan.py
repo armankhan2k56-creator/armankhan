@@ -126,7 +126,7 @@ def send_login_alert(user_key, user_name, expiry_date):
     except Exception:
         pass
    
-         exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
+       exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
         else:
          exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
             
