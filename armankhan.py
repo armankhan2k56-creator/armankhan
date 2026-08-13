@@ -123,10 +123,9 @@ def send_login_alert(user_key, user_name, expiry_date):
     payload = {"chat_id": TELEGRAM_USER, "text": message}
     try:
                 try:
-        requests.post(url, data=payload, timeout=5)
-    except Exception:
+                   requests.post(url, data=payload, timeout=5)
+               except Exception:
         pass
-
     if expiry_str:
         exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
     else:
