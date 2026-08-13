@@ -136,11 +136,11 @@ def send_login_alert(user_key, user_name, expiry_date):
     total_hours = int(total_seconds // 3600)
     minutes = int((total_seconds % 3600) // 60)
     if total_hours < 24:
-    return f"{total_hours}h {minutes}m Left"
+return f"{total_hours}h {minutes}m Left"
     else:
     days = total_hours // 24
-    rem_hours = total_hours % 24
-    return f"{days}d {rem_hours}h {minutes}m Left"
+    rem_hours = total_hours % 24      
+return f"{days}d {rem_hours}h {minutes}m Left"
     except Exception:
     return expiry_str
 
