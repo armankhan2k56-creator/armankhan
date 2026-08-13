@@ -287,7 +287,7 @@ def check_key():
      ┃
 ┃ Please contact ARMAN to get your Key!           ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\033[0m""")
-\033[1;33mprint(f"""\033[1;33m 
+print(f"""\033[1;33m...
 ══════════════════════════
 ║  YOUR TRIAL HAS ENDED - CONTACT  ARMAN       ||
 
