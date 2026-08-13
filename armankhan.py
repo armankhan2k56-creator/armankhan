@@ -31,7 +31,7 @@ from requests.exceptions import ConnectionError
 requests.urllib3.disable_warnings()
 
 # --- Configuration ---
-FIREBASE_URL = https://arman-f9a3b-default-rtdb.firebaseio.com/
+FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 
 # TELEGRAM CONFIGURATION
 BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
