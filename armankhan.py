@@ -296,7 +296,7 @@ print(f"""\033[1;33m...
 ╚════════════════════════════════════════════╝\033[0m
 """)  
    
-customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper(    
+customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper() 
       if not customer_name: customer_name = "USER"
             
             print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
