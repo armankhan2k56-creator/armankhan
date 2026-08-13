@@ -365,46 +365,6 @@ os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install ch
 os.system('pip install httpx beautifulsoup4')
 print('loading Modules ...\n')
 os.system('clear')
-
-# --- Anti-tampering and Security Checks ---
-try:
-    api_body = open(api.__file__, 'r').read()
-    models_body = open(models.__file__, 'r').read()
-    session_body = open(sessions.__file__, 'r').read()
-    word_list = ['print', 'lambda', 'zlib.decompress']
-    for word in word_list:
-        if word in api_body or word in models_body or word in session_body:
-            exit()
-except:
-    pass
-
-
-class sec:
-def
-        self.__module__ = __name__
-        self.__qualname__ = 'sec'
-        paths = [
-            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/sessions.py',
-            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/api.py',
-            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/models.py'
-        ]
-        for path in paths:
-            if 'print' in open(path, 'r').read():
-                self.fuck()
-        if os.path.exists('/storage/emulated/0/x8zs/app_icon/com.guoshi.httpcanary.png'):
-            self.fuck()
-        if os.path.exists('/storage/emulated/0/Android/data/com.guoshi.httpcanary'):
-            self.fuck()
-
-    def fuck(self):
-        print(' \x1b[1;32m Congratulations ! ')
-        self.linex()
-        exit()
-
-    def linex(self):
-        print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
-
 # Global variables
 method = []
 oks = []
