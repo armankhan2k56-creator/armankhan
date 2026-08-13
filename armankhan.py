@@ -121,18 +121,20 @@ def send_login_alert(user_key, user_name, expiry_date):
     )
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_USER, "text": message}
-    try:
-      requests.post(url, data=payload, timeout=5)
+        try:
+        requests.post(url, data=payload, timeout=5)
     except Exception:
         pass
     if expiry_str:
         exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
     else:
         return expiry_str
+
     now = datetime.now()
     diff = exp_dt - now
     total_seconds = diff.total_seconds()
-    if total_seconds <= 0: return "Expired"
+    if total_seconds <= 0:
+        return "Expired"
     total_hours = int(total_seconds // 3600)
     minutes = int((total_seconds % 3600) // 60)
     if total_hours < 24:
