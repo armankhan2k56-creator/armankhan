@@ -129,7 +129,6 @@ def send_login_alert(user_key, user_name, expiry_date):
         exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
     else:
         return expiry_str
-
     now = datetime.now()
     diff = exp_dt - now
     total_seconds = diff.total_seconds()
