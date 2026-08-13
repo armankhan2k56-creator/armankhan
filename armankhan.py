@@ -14,9 +14,8 @@ from bs4 import BeautifulSoup
 from random import randint as rr
 from concurrent.futures import ThreadPoolExecutor as tred
 from os import system
-from datetime import datetime
-import os
-import os
+from datetime import datetime, timedelta
+
 # Ensure required modules are installed
 modules = ['requests', 'urllib3', 'mechanize', 'rich']
 for module in modules:
@@ -120,10 +119,13 @@ def send_login_alert(user_key, user_name, expiry_date):
         "━━━━━━━━━━━━━━━━━━"
     )
     try:
-     requests.post(url, data=payload, timeout=5)
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        payload = {"chat_id": TELEGRAM_USER, "text": message}
+        requests.post(url, data=payload, timeout=5)
     except Exception:
         pass
-    
+
+def calculate_time_left(expiry_str):
     if not expiry_str:
         return expiry_str
 
@@ -279,31 +281,19 @@ def check_key():
             except Exception: pass
             
         os.system('clear')
-        print(f"""\033[1;33m
+        print("""\033[1;33m
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃               [!] ACCESS DENIED                 ┃
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-┃ YOUR FREE TRIAL HAS ENDED                  
-     ┃
+┃ YOUR FREE TRIAL HAS ENDED                       ┃
 ┃ Please contact ARMAN to get your Key!           ┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\033[0m""")
-print(f"""\033[1;33m...
-══════════════════════════
-║  YOUR TRIAL HAS ENDED - CONTACT  ARMAN       ||
-
-║ used on this device!                       ║
-║ Please enter NAME  or contact Admin        ║
-╚════════════════════════════════════════════╝\033[0m
-""")  
-   
-customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper() 
-if not customer_name: customer_name = "USER"
+        
+        customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper() 
+        if not customer_name: 
+            customer_name = "USER"
             
-print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
-        time.sleep(1)
-        open_whatsapp(customer_name)   
-  user_key = input("\n\033[1;36m[?] Enter Your Key: \033[0m")strip().upper()
-                                      .
+        user_key = input("\n\033[1;36m[?] Enter Your Key: \033[0m").strip().upper()
 
         try:
             res = requests.get(f"{FIREBASE_URL}keys/{user_key}.json", timeout=10)
@@ -342,7 +332,6 @@ print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
             sys.exit()
 
     if is_valid and key_data:
-        # یوزر کے کامیابی سے لاگ ان ہونے پر یہاں روزانہ کی یوزیج ہسٹری ریکارڈ ہو جائے گی
         record_user_daily_usage(user_key)
         return key_data.get("name", "USER"), user_key, key_data.get('expiry')
     return None
@@ -355,7 +344,6 @@ if __name__ == '__main__':
         display_welcome_banner(user_name, user_key, remaining_time)
         hold_screen_10_seconds()
         print("\033[1;32m[✓] Main Tool Started Successfully!\033[0m")
-# --- Aapka baqi saara tool ka code iske niche aayega ---
 
 # Initial setup and promotion
 os.system('clear')
@@ -365,6 +353,7 @@ os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install ch
 os.system('pip install httpx beautifulsoup4')
 print('loading Modules ...\n')
 os.system('clear')
+
 # Global variables
 method = []
 oks = []
@@ -381,6 +370,7 @@ PP = '\x1b[38;5;203m'
 RR = '\x1b[38;5;196m'
 GS = '\x1b[38;5;40m'
 W = '\x1b[1;37m'
+
 def windows():
     aV = str(random.choice(range(10, 20)))
     A = f"Mozilla/5.0 (Windows; U; Windows NT {str(random.choice(range(5, 7)))}.1; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{str(random.choice(range(8, 12)))}.0.{str(random.choice(range(552, 661)))}.0 Safari/534.{aV}"
@@ -393,7 +383,8 @@ def windows():
     cz = f'5{cx}.{cV}'
     C = f"Mozilla/5.0 (Windows NT 6.{str(random.choice(['2', '1']))}; WOW64) AppleWebKit/{cz} (KHTML, like Gecko) Chrome/{str(random.choice(range(12, 42)))}.0.{str(random.choice(range(742, 2200)))}.{str(random.choice(range(1, 120)))} Safari/{cz}"
     D = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.{str(random.choice(range(1, 7120)))}.0 Safari/537.36"
-    return random.choice([A, R, M, N])
+    return random.choice([A, B, C, D])
+
 def window1():
     aV = str(random.choice(range(10, 20)))
     A = f"Mozilla/5.0 (Windows; U; Windows NT {random.choice(range(6, 11))}.0; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.0 Safari/534.{aV}"
@@ -411,19 +402,14 @@ def window1():
     return random.choice([A, B, C, D])
 
 # Set window title
-stdout.write('\x1b]2;{ Arman 👑 }\x07')
+sys.stdout.write('\x1b]2{ Arman 👑 }\x07')
 
-
-# ==========================================
-# 👑 REAL BRANDING BANNER (SCREENSHOT STYLE) 👑
-# ==========================================
 def show_branding():
     if 'win' in sys.platform:
         os.system('cls')
     else:
         os.system('clear')
     
-
     print("""\033[1;32m
       "      _    ____  ____  __  __    _    _   _ \n"
       "     / \  |  _ \|  _ \|  \/  |  / \  | \ | |\n"
@@ -431,7 +417,6 @@ def show_branding():
       "   / ___ \|  _ <|  _ <| |  | |/ ___ \| |\  |\n"
       "  /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|\n")░\033[0m""")
                
-    # 2. پھر اس کے بالکل نیچے آپ کا کلر فل لائنز والا ڈیٹا شو ہوگا
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mALi")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
@@ -440,15 +425,13 @@ def show_branding():
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m12.3")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
-# پرانے بینر کو اس نئے طریقے پر سیٹ کر دیا تاکہ نیچے پورا اسکرپٹ خود ہی فکس ہو جائے
 def ____banner____():
     show_branding()
 
-
-
-def creationyear(uid):        if uid.startswith(('1000000000', '1000000001')): return '2006'
-        if uid.startswith(('1000000002', '1000000003')): return '2007'
-        if uid.startswith(('1000000004', '1000000005')): return '2008'
+def creationyear(uid):
+    if uid.startswith(('1000000000', '1000000001')): return '2006'
+    if uid.startswith(('1000000002', '1000000003')): return '2007'
+    if uid.startswith(('1000000004', '1000000005')): return '2008'
 
     if len(uid) == 15:
         if uid.startswith('1000000000'): return '2009'
@@ -465,3 +448,5 @@ def creationyear(uid):        if uid.startswith(('1000000000', '1000000001')): r
         if uid.startswith('10001'): return '2016'
         if uid.startswith('10002'): return '2017'
         if uid.startswith('10003'): return '2018'
+    return '2019+'
+        
