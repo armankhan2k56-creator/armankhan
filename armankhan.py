@@ -119,10 +119,8 @@ def send_login_alert(user_key, user_name, expiry_date):
         f"⏰ Expiry Date: {expiry_date}\n"
         "━━━━━━━━━━━━━━━━━━"
     )
-    def check_key(expiry_str):
+      def check_key(expiry_str):
          try:
-url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-        payload = {"chat_id": TELEGRAM_USER, "text": "message"}
         requests.post(url, data=payload, timeout=5)
     except Exception:
         pass
