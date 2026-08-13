@@ -299,7 +299,7 @@ print(f"""\033[1;33m...
 customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper() 
 if not customer_name: customer_name = "USER"
             
-            print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
+print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
         time.sleep(1)
         open_whatsapp(customer_name)   
   user_key = input("\n\033[1;36m[?] Enter Your Key: \033[0m")strip().upper()
