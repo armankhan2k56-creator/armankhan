@@ -119,8 +119,8 @@ def send_login_alert(user_key, user_name, expiry_date):
         f"⏰ Expiry Date: {expiry_date}\n"
         "━━━━━━━━━━━━━━━━━━"
     )
-  try:
-        requests.post(url, data=payload, timeout=5)
+    try:
+     requests.post(url, data=payload, timeout=5)
     except Exception:
         pass
     
