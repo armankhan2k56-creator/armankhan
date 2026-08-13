@@ -163,13 +163,13 @@ def calculate_time_left(expiry_str):
 def display_welcome_banner(user_name, user_key, time_left):
     os.system('clear')
     print(f"""
-\033[1;32m╔════════════════════════════════════════════╗
-║             ARMAN TOOL ACTIVE              ║
+\033[1;36m╔════════════════════════════════════════════╗
+║             🔥 ARMAN TOOL 🔥               ║
 ╠════════════════════════════════════════════╣
-║ USER NAME    : {user_name:<27} ║
-║ LICENSED KEY : {user_key:<27} ║
-║ VALIDITY     : {time_left:<27} ║
-║ SYSTEM STATUS: ONLINE & READY              ║
+║ 🇵🇰 ᴘᴛɪ       : ᴘᴛɪ ᴛɪɢᴇʀ                   ║
+║ 👑 ᴋʜᴀɴ ᴅɪᴡᴀɴᴀ: ᴅɪʟ ᴍᴀɪɴ ɪᴍʀᴀɴ ᴋʜᴀɴ         ║
+║ ⏳ ᴠᴀʟɪᴅɪᴛʏ  : {time_left:<27} ║
+║ ⚡ sʏsᴛᴇᴍ ᴋᴀ ʙᴀᴘ: ɪᴍʀᴀɴ ᴋʜᴀɴ               ║
 ╚════════════════════════════════════════════╝\033[0m
 """)
 
