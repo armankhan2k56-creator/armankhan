@@ -380,7 +380,7 @@ except:
 
 
 class sec:
-    def __init__(self):
+def __init__(self):
         self.__module__ = __name__
         self.__qualname__ = 'sec'
         paths = [
