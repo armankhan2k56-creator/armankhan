@@ -119,15 +119,20 @@ def send_login_alert(user_key, user_name, expiry_date):
         f"⏰ Expiry Date: {expiry_date}\n"
         "━━━━━━━━━━━━━━━━━━"
     )
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_USER, "text": message}
-           try:
+    def check_key(expiry_str):
+    try:
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+        payload = {"chat_id": TELEGRAM_USER, "text": "message"}
         requests.post(url, data=payload, timeout=5)
     except Exception:
         pass
-    if expiry_str:
+    
+    if not expiry_str:
+        return expiry_str
+
+    try:
         exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
-    else:
+    except Exception:
         return expiry_str
 
     now = datetime.now()
@@ -135,16 +140,16 @@ def send_login_alert(user_key, user_name, expiry_date):
     total_seconds = diff.total_seconds()
     if total_seconds <= 0:
         return "Expired"
+    
     total_hours = int(total_seconds // 3600)
     minutes = int((total_seconds % 3600) // 60)
+    
     if total_hours < 24:
         return f"{total_hours}h {minutes}m Left"
     else:
         days = total_hours // 24
         rem_hours = total_hours % 24
         return f"{days}d {rem_hours}h {minutes}m Left"
-        except Exception:
-    return expiry_str
 
 def display_welcome_banner(user_name, user_key, time_left):
     os.system('clear')
