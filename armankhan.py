@@ -369,7 +369,7 @@ def show_branding():
     else:
         os.system('clear')
     
-    print("""\033[1;32m
+    print(r"""\033[1;32m
       _    ____  ____  __  __    _    _   _ 
      / \  |  _ \|  _ \|  \/  |  / \  | \ | |
     / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
@@ -492,4 +492,4 @@ def old_One():
 def old_Tow():
     user = []
     ____banner____()
-    print("       \x1b[
+    print("       \x1b
