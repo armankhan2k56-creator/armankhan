@@ -141,7 +141,7 @@ def send_login_alert(user_key, user_name, expiry_date):
         days = total_hours // 24
         rem_hours = total_hours % 24
         return f"{days}d {rem_hours}h {minutes}m Left"
-    except Exception:
+except Exception:
     return expiry_str
 
 def display_welcome_banner(user_name, user_key, time_left):
