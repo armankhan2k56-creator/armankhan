@@ -294,10 +294,10 @@ print(f"""\033[1;33m...
 ║ used on this device!                       ║
 ║ Please enter NAME  or contact Admin        ║
 ╚════════════════════════════════════════════╝\033[0m
-""")
-        
-        customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper()
-        if not customer_name: customer_name = "USER"
+""")  
+   
+customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper(    
+      if not customer_name: customer_name = "USER"
             
             print("\n\033[1;32m[•] Opening WhatsApp to contact ARMAN...\033[0m")
         time.sleep(1)
