@@ -52,7 +52,6 @@ def check_update():
             print("\x1b[38;5;51m [i] Please wait, downloading latest code...\033[0m")
             print("\x1b[38;5;196m========================================\033[0m")
             
-            # Automatic code update via git pull
             os.system('git pull origin main > /dev/null 2>&1 || git pull > /dev/null 2>&1')
             print("\n\x1b[38;5;46m[✓] Tool Updated Successfully! Restarting...\033[0m")
             time.sleep(2)
@@ -488,4 +487,5 @@ def old_One():
             elif meth == 'B':
                 pool.submit(login_2, uid)
             else:
-                print(f
+                print(f"    {rad}[!] INVALID METHOD SELECTED")
+         
