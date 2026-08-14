@@ -426,6 +426,9 @@ def show_branding():
 def ____banner____():
     show_branding()
 
+def linex():
+    print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
 def BNG_71_():
     ____banner____()
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mOLD CLONE')
@@ -525,4 +528,3 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n\033[1;31m[×] Error: {e}\033[0m")
         sys.exit()
-
