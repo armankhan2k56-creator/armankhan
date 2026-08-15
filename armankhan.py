@@ -496,7 +496,7 @@ def old_One():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=30) as pool:
+    with tred(max_workers=10) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -531,7 +531,7 @@ def old_Tow():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD B')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=30) as pool:
+    with tred(max_workers=10) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -564,7 +564,7 @@ def old_Tree():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMethod B')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=30) as pool:
+    with tred(max_workers=10) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -627,6 +627,7 @@ def login_1(uid):
                 oks.append(uid)
                 break
         loop += 1
+        time.sleep(0.5)
     except Exception:
         loop += 1
         time.sleep(2)
@@ -654,6 +655,7 @@ def login_2(uid):
         except Exception:
             pass
     loop += 1
+    time.sleep(0.5)
 
 if __name__ == '__main__':
     result = check_key()
