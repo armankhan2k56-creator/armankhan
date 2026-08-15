@@ -46,7 +46,7 @@ def check_update():
         response = requests.get(url, timeout=5)
         server_version = response.json()
         
-        current_version = "v13.4"
+        current_version = "13.4"
         
         if server_version and str(server_version).strip() != str(current_version).strip():
             print("\n\x1b[38;5;196m========================================\033[0m")
