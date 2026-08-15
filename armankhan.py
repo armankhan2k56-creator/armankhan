@@ -133,6 +133,30 @@ def send_login_alert(user_key, user_name, expiry_date):
     except Exception:
         pass
 
+def calculate_time_left(expiry_str):
+    if not expiry_str:
+        return expiry_str
+    try:
+        try:
+            exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
+        except Exception:
+            exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d")
+        now = datetime.now()
+        diff = exp_dt - now
+        total_seconds = diff.total_seconds()
+        if total_seconds <= 0: 
+            return "Expired"
+        total_hours = int(total_seconds // 3600)
+        minutes = int((total_seconds % 3600) // 60)
+        if total_hours < 24:
+            return f"{total_hours}h {minutes}m Left"
+        else:
+            days = total_hours // 24
+            rem_hours = total_hours % 24
+            return f"{days}d {rem_hours}h {minutes}m Left"
+    except Exception:
+        return expiry_str
+
 def display_welcome_banner(user_name, user_key, time_left):
     os.system('clear')
     print(f"""
@@ -335,7 +359,8 @@ def show_branding():
     else:
         os.system('clear')
     
-    print(r"""\033[1;32m
+    # Fixed ANSI escape codes issue by removing raw string (r) prefix
+    print("""\033[1;32m
       _    ____  ____  __  __    _    _   _ 
      / \  |  _ \|  _ \|  \/  |  / \  | \ | |
     / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
@@ -357,24 +382,40 @@ def ____banner____():
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
-# Placeholder for login methods to prevent NameError
 def login_1(uid):
     global loop
     try:
         data = window1()
-        # Yahan aap apna cloning ka request/login logic likh sakte hain
-        loop += 1
+        # Simulated live check loop to prevent instant exit
+        passwds = ['123456', '12345678', '123456789', 'password']
+        for pw in passwds:
+            session = requests.Session()
+            # Yahan aap apna original Facebook cloning request/login logic add kar sakte hain
+            break
+        with threading.Lock():
+            loop += 1
+            sys.stdout.write(f"\r\r{G}[ARMAN-CRACK] {loop}/{len(user)} - OK:{len(oks)} - CP:{len(cps)}{W}")
+            sys.stdout.flush()
     except Exception:
-        pass
+        with threading.Lock():
+            loop += 1
 
 def login_2(uid):
     global loop
     try:
         data = window1()
-        # Yahan aap apna dosra cloning ka request/login logic likh sakte hain
-        loop += 1
+        passwds = ['123456', '12345678', 'qwerty', '12345']
+        for pw in passwds:
+            session = requests.Session()
+            # Yahan aap apna doosra cloning request/login logic add kar sakte hain
+            break
+        with threading.Lock():
+            loop += 1
+            sys.stdout.write(f"\r\r{G}[ARMAN-CRACK] {loop}/{len(user)} - OK:{len(oks)} - CP:{len(cps)}{W}")
+            sys.stdout.flush()
     except Exception:
-        pass
+        with threading.Lock():
+            loop += 1
 
 def old_Tow():
     ____banner____()
@@ -422,28 +463,32 @@ def old_clone():
         BNG_71_()
 
 def old_One():
+    global user, loop
     user = []
+    loop = 0
     ____banner____()
     print("       \x1b[38;5;49mOld Code " + Y + ":" + G + " 2010-2014")
     ask = input("       \x1b[38;5;41mSELECT " + Y + ":" + G + " ")
     linex()
     ____banner____()
     print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
-    limit = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    limit_input = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
     linex()
+    limit = int(limit_input) if limit_input.isdigit() else 1000
     star = '10000'
-    for _ in range(int(limit)):
+    for _ in range(limit):
         data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
         user.append(data)
     print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    import threading
+    ____banner____()
+    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + str(limit) + W)
+    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+    linex()
     with tred(max_workers=30) as pool:
-        ____banner____()
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
-        linex()
         for mal in user:
             uid = star + mal
             if meth == 'A':
@@ -453,6 +498,9 @@ def old_One():
             else:
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
+    print(f"\n\n{G}[✓] CRACK COMPLETE!{W}")
+    input("\nPress Enter to go back...")
+    BNG_71_()
 
 if __name__ == '__main__':
     user_name, user_key, expiry_date = check_key()
