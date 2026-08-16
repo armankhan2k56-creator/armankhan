@@ -20,6 +20,16 @@ try:
 except ModuleNotFoundError:
     os.system('pip install mechanize requests futures==2 > /dev/null')
 
+#----------[ COLOR DEFINITIONS ]---------- #
+N = '\x1b[0m'    
+P = '\x1b[1;97m' 
+M = '\x1b[1;91m' 
+H = '\x1b[1;92m' 
+K = '\x1b[1;93m' 
+B = '\x1b[1;94m' 
+U = '\x1b[1;95m' 
+O = '\x1b[1;96m' 
+
 #----------[ USER LINKS & CONFIG ]---------- #
 ARSALAN_WA = "https://wa.me/923022745249"
 ARSALAN_FIREBASE = "https://arman-f9a3b-default-rtdb.firebaseio.com/keys/123"
