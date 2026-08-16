@@ -909,7 +909,7 @@ def clear():
 def linex():
     print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
 
-logo = '\x1b[1;37m\n\x1b[1;31m .d8888b.       Y88b   d88P  .d88888b.  \n\x1b[1;34md88P  Y88b       Y88b d88P  d88P" "Y88b \n\x1b[1;37m     .d88P        Y88o88P   888     888 \n\x1b[1;31m    8888"          Y888P    888     888 \n\x1b[1;34m     "Y8b.         d888b    888     888 \n\x1b[1;37m888    888 888888 d88888b   888     888 \n\x1b[1;31mY88b  d88P       d88P Y88b  Y88b. .d88P \n\x1b[1;34m "Y8888P"       d88P   Y88b  "Y88888P"   \x1b[41;32mV:1.5\x1b[m\n\x1b[1;31m⋖====================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸==================⋗\n      \x1b[1;41m\x1b[1;37m[ARSLAN KAI FIRE HAI ]\x1b[0m\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[T-\x1b[1;34m\x1b[1;37mOOLS]\x1b[0m \x1b[1;34m⫸=================⋗\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mCREATERR \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mFACEBOOK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN KHAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mDEVELOPE \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN TEAM\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mWHATSAPP \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m 03202271931\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mSTUTASSS \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;41m\x1b[1;37m[FILE X \x1b[1;42m\x1b[1;37mRANDOM]\x1b[0m\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mLEGENDER \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m OFF ARSLAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mTEAMWORK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN TEAM\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mNETWORKK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ONLY DATA WORK\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mTOOLS IS \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m PAID HAI KIDS\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mRULER HU \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN YT\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[B--\x1b[1;34m\x1b[1;37mY]\x1b[0m \x1b[1;34m⫸===================⋗\n \x1b[1;41m\x1b[1;37m[WELCOME TO HATERS \x1b[1;42m\x1b[1;37mAPNE ABBU ARSLAN KE PAS]\x1b[0m\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗'
+logo = '\x1b[1;37m\n\x1b[1;31m .d8888b.       Y88b   d88P  .d88888b.  \n\x1b[1;34md88P  Y88b       Y88b d88P  d88P" "Y88b \n\x1b[1;37m     .d88P        Y88o88P   888     888 \n\x1b[1;31m    8888"          Y888P    888     888 \n\x1b[1;34m     "Y8b.         d888b    888     888 \n\x1b[1;37m888    888 888888 d88888b   888     888 \n\x1b[1;31mY88b  d88P       d88P Y88b  Y88b. .d88P \n\x1b[1;34m "Y8888P"       d88P   Y88b  "Y88888P"   \x1b[41;32mV:1.5\x1b[m\n\x1b[1;31m⋖====================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸==================⫗\n      \x1b[1;41m\x1b[1;37m[ARSLAN KAI FIRE HAI ]\x1b[0m\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[T-\x1b[1;34m\x1b[1;37mOOLS]\x1b[0m \x1b[1;34m⫸=================⋗\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mCREATERR \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mFACEBOOK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN KHAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mDEVELOPE \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN TEAM\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mWHATSAPP \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m 03202271931\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mSTUTASSS \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;41m\x1b[1;37m[FILE X \x1b[1;42m\x1b[1;37mRANDOM]\x1b[0m\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mLEGENDER \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m OFF ARSLAN\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mTEAMWORK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN TEAM\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mNETWORKK \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ONLY DATA WORK\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mTOOLS IS \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m PAID HAI KIDS\n\x1b[1;31m[\x1b[1;32m࿋\x1b[1;31m]  \x1b[1;37mRULER HU \x1b[1;31m[\x1b[1;32m❁\x1b[1;31m] : \x1b[1;31m[\x1b[1;32m●\x1b[1;31m] \x1b[1;37m ARSLAN YT\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[B--\x1b[1;34m\x1b[1;37mY]\x1b[0m \x1b[1;34m⫸===================⋗\n \x1b[1;41m\x1b[1;37m[WELCOME TO HATERS \x1b[1;42m\x1b[1;37mAPNE ABBU ARSLAN KE PAS]\x1b[0m\n\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗'
 
 def naima():
     print('-------------------')
@@ -1186,11 +1186,11 @@ def _Nepal_():
                 'kathmandu12']
             sexy.submit(randm, ids, psd)
     print('')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     print('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m THE PROCESS HAS BEEN COMPLETED')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL OK ID {G}:{G2} {str(len(ok))}''')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL CP ID {G}:{G3} {str(len(cp))}''')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     input('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m PRESS ENTER TO BACK ')
     menu()
 
@@ -1227,11 +1227,11 @@ def _India_():
                 '57575751']
             sexy.submit(randm, ids, psd)
     print('')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     print('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m THE PROCESS HAS BEEN COMPLETED')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL OK ID {G}:{G2} {str(len(ok))}''')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL CP ID {G}:{G3} {str(len(cp))}''')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     input('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m PRESS ENTER TO BACK ')
     menu()
 
@@ -1277,11 +1277,11 @@ def _Pk_():
                 'pubg1122']
             sexy.submit(randm, ids, psd)
     print('')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
     print('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m THE PROCESS HAS BEEN COMPLETED')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL OK ID {G}:{G2} {str(len(ok))}''')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL CP ID {G}:{G3} {str(len(cp))}''')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
     input('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m PRESS ENTER TO BACK ')
     menu()
 
@@ -1320,11 +1320,11 @@ def _Malaysia_():
                 'malaysia']
             sexy.submit(randm, ids, psd)
     print('')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
     print('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m THE PROCESS HAS BEEN COMPLETED')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL OK ID {G}:{G2} {str(len(ok))}''')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL CP ID {G}:{G3} {str(len(cp))}''')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================⋗')
     input('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m PRESS ENTER TO BACK ')
     menu()
 
@@ -1375,11 +1375,11 @@ def _Afg_():
                 'khan786']
             sexy.submit(randm, ids, psd)
     print('')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     print('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m THE PROCESS HAS BEEN COMPLETED')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL OK ID {G}:{G2} {str(len(ok))}''')
     print(f'''\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m TOTAL CP ID {G}:{G3} {str(len(cp))}''')
-    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m⫸================\')
+    print('\x1b[1;31m⋖===================⫷ \x1b[1;34m\x1b[1;37m[ARSLAN]\x1b[0m \x1b[1;34m\x1b[1;37m⫸================⋗')
     input('\x1b[1;31m[\x1b[1;32m✓\x1b[1;31m]\x1b[1;37m PRESS ENTER TO BACK ')
     menu()
 
