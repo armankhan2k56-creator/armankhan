@@ -368,19 +368,26 @@ def window1():
     return random.choice([A, B, C, D] + fb_ua_list)
 
 def get_smart_headers():
-    ua = window1()
     return {
-        "Host": "b-graph.facebook.com",
-        "Cache-Control": "max-age=0",
-        "Sec-Ch-Ua": '"Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"',
-        "Sec-Ch-Ua-Mobile": "?1",
-        "Sec-Ch-Ua-Platform": '"Android"',
-        "Upgrade-Insecure-Requests": "1",
-        "User-Agent": ua,
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
-        "X-Requested-With": "com.facebook.katana",
-        "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "en-US,en;q=0.9"
+        'authority': 'm.facebook.com',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'accept-language': 'en-US,en;q=0.9',
+        'cache-control': 'max-age=0',
+        'dpr': '2',
+        'sec-ch-prefers-color-scheme': 'light',
+        'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+        'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-model': '"TECNO KM5"',
+        'sec-ch-ua-platform': '"Android"',
+        'sec-ch-ua-platform-version': '"15.0.0"',
+        'sec-fetch-dest': 'document',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'viewport-width': '980',
     }
 
 sys.stdout.write('\x1b]2;{ Arman 👑 }\x07')
@@ -395,7 +402,7 @@ def show_branding():
       _    ____  ____  __  __    _    _   _ 
      / \  |  _ \|  _ \|  \/  |  / \  | \ | |
     / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
-   / ___ \|  _ <|  _ <| |  | |/ ___ \| |\  |
+   / ___শিল্পী |  _ <|  _ <| |  | |/ ___শিল্পী | |\  |
   /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|
 \033[0m""")
                
@@ -404,7 +411,7 @@ def show_branding():
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAPP   \x1b[38;5;46m▶  \033[1;97m03022745249")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m13.5")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m15.3")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
