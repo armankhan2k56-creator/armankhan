@@ -398,9 +398,9 @@ def show_branding():
       "  /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|\n")░\033[0m""")
                
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mARSALN")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mOWNER      \x1b[38;5;46m▶  \033[1;97mArsalsn")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mARMAN-TOOL")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03052962654")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03022745249")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;97mVERSION    \x1b[38;5;46m▶  \033[1;97m13.4")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
@@ -603,9 +603,8 @@ def login_1(uid):
                 'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
                 'api_key': '882a8490361da98702bf97a021ddc14d'
             }
-            # Updated Headers with HttpCanary values
             headers = {
-                'Host': 'hdr.fb.com',
+                'Host': 'b-graph.facebook.com',
                 'User-Agent': 'Facebook',
                 'Accept-Encoding': 'gzip, deflate',
                 'X-FB-HTTP-Engine': 'Tigon/Liger',
@@ -640,7 +639,7 @@ def login_2(uid):
         try:
             with requests.Session() as session:
                 headers = {
-                    'Host': 'hdr.fb.com',
+                    'Host': 'b-graph.facebook.com',
                     'User-Agent': 'Facebook',
                     'Accept-Encoding': 'gzip, deflate',
                     'X-FB-HTTP-Engine': 'Tigon/Liger',
