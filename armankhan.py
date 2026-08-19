@@ -271,7 +271,7 @@ def main():
     else:
         PTiKING = '100000'
 
-    if PTi KING == '100000':
+    if PTiKING == '100000':
         print(f'{x} EXAMPLE {G}:{W} 1000 {G}|{W} 2000 {G}|{W} 5000 {G}|{W} 10000')
         line()
         limit = int(input(f'{ch} LIMIT {G}:{W} '))
