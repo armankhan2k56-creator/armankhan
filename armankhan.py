@@ -138,7 +138,6 @@ def Public():
 			exit()
 	elif pil in ['2','02']:
 		try:     
-			
             headers ={
                 'authority': 'graph.facebook.com',
                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
