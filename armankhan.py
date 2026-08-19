@@ -267,9 +267,9 @@ def main():
     choice = input(f'{ch} Select : ')
     print(Banner())
     if choice in ('1', '01'):
-        PTi KING = '100000'
+        PTiKING = '100000'
     else:
-        PTi KING = '100000'
+        PTiKING = '100000'
 
     if PTi KING == '100000':
         print(f'{x} EXAMPLE {G}:{W} 1000 {G}|{W} 2000 {G}|{W} 5000 {G}|{W} 10000')
