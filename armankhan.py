@@ -138,32 +138,32 @@ def Public():
 			exit()
 	elif pil in ['2','02']:
 		try:     
-   headers = {
-    'authority': 'graph.facebook.com',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0',
-    # 'cookie': 'datr=2NaFaiEXCBo0n67wy3IHz-Jl; sb=2NaFaoXxr_EH78qP_VE9ZJ57; m_pixel_ratio=2; wd=360x800; fr=0l4wVINYZacoIkuyK..BqhdbY..AAA.0.0.Bqhdb3.AWdyGg07LWQh6P8J-mGp-OQReoE',
-    'dpr': '2',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
-    'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-model': '"TECNO KM5"',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-ch-ua-platform-version': '"15.0.0"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
-    'viewport-width': '980',
-}
+			headers ={
+                'authority': 'graph.facebook.com',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+                'accept-language': 'en-US,en;q=0.9',
+                'cache-control': 'max-age=0',
+              # 'cookie': 'datr=2NaFaiEXCBo0n67wy3IHz-Jl; sb=2NaFaoXxr_EH78qP_VE9ZJ57; m_pixel_ratio=2; wd=360x800; fr=0l4wVINYZacoIkuyK..BqhdbY..AAA.0.0.Bqhdb3.AWdyGg07LWQh6P8J-mGp-OQReoE',
+                'dpr': '2',
+                'sec-ch-prefers-color-scheme': 'light',
+                'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+                'sec-ch-ua-full-version-list': '"Chromium";v="139.0.7339.0", "Not;A=Brand";v="99.0.0.0"',
+                'sec-ch-ua-mobile': '?1',
+                'sec-ch-ua-model': '"TECNO KM5"',
+                'sec-ch-ua-platform': '"Android"',
+                'sec-ch-ua-platform-version': '"15.0.0"',
+                'sec-fetch-dest': 'document',
+                'sec-fetch-mode': 'navigate',
+				'sec-fetch-site': 'same-origin',
+                'sec-fetch-user': '?1',
+                'upgrade-insecure-requests': '1',
+                'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537. 
+                'viewport-width': '980',
+            }
 			ken=open(".token.txt", "w").write(find_token.group(1))
 			print (" [] Login Successful")
 			login()
-		except Exception as e: 
+		    except Exception as e: 
 			os.system("rm -f .token.txt")
 			print( ' [×] Login Failed ')
 			time.sleep(2.5)
