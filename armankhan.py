@@ -285,7 +285,7 @@ def main():
     print(f'{x} TOTAL UID {xy} {len(user_ids)}')
     line()
     with ThreadPool(max_workers=40) as pool:
-        pool.map(login, [PTi KING + uid for uid in user_ids])
+        pool.map(login, [PTiKING + uid for uid in user_ids])
     print()
     line()
     print(f'{x} PROGRAM FINISHED.')
