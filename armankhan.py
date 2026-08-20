@@ -469,7 +469,7 @@ def old_One():
     linex()
     star = '10000'
     for _ in range(int(limit)):
-    data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
+        data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
     user.append(data)
     print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
