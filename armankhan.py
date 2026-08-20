@@ -74,7 +74,7 @@ def creationyear(uid):
         if uid.startswith(('10007', '10008')): return '2022'
         return ''
     elif len(uid) in (9, 10): return '2008'
-    elif len(uid) == 8: return '2007'
+    elif len(uid == 8): return '2007'
     elif len(uid) == 7: return '2006'
     elif len(uid) == 14 and uid.startswith('61'): return '2024'
     else: return ''
@@ -177,16 +177,16 @@ def old_One():
     user = []
     ____banner____()
     print(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;49mOld Code {Y}:{G} 2010-2014")
-    ask = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;41mSELECT {Y}:{G} ")
+    ask = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;41mSELECT (1/2) {Y}:{G} ")
     linex()
     ____banner____()
     print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT {Y}:{G} ")
+    limit = int(input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT {Y}:{G} "))
     linex()
     star = '10000'
-    for _ in range(int(limit)):
-        data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
-        user.append(data)
+    for _ in range(limit):
+        data = ''.join(random.choices(string.digits, k=9))
+        user.append(star + data)
     print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mMETHOD 2')
     linex()
@@ -196,8 +196,7 @@ def old_One():
         print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
         print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
-        for mal in user:
-            uid = star + mal
+        for uid in user:
             if meth in ('A', 'B'):
                 pool.submit(cracker, uid)
             else:
@@ -214,10 +213,10 @@ def old_Tow():
     linex()
     ____banner____()
     print(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} ")
+    limit = int(input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} "))
     linex()
     prefixes = ['100003', '100004']
-    for _ in range(int(limit)):
+    for _ in range(limit):
         prefix = random.choice(prefixes)
         suffix = ''.join(random.choices('0123456789', k=9))
         uid = prefix + suffix
@@ -248,10 +247,10 @@ def old_Tree():
     linex()
     ____banner____()
     print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
+    limit = int(input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} "))
     linex()
     prefix = '1000004'
-    for _ in range(int(limit)):
+    for _ in range(limit):
         suffix = ''.join(random.choices('0123456789', k=8))
         uid = prefix + suffix
         user.append(uid)
