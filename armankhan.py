@@ -45,8 +45,7 @@ def xox(z):
 
 def banner():
 	os.system("clear")
-	print("")
-    print(
+	print(
         " %s █████╗ ██████╗ ███████╗ █████╗ ██╗      █████╗ ███╗   ██╗"
         % (M)
     )
