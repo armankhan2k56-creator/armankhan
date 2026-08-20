@@ -373,7 +373,7 @@ def show_branding():
       _    ____  ____  __  __    _    _   _ 
      / \  |  _ \|  _ \|  \/  |  / \  | \ | |
     / _ \ | |_) | |_) | |\/| | / _ \ |  \| |
-   / ___শিল্পী|  _ <|  _ <| |  | |/ ___ \| |\  |
+   / ___ \|  _ <|  _ <| |  | |/ ___ \| |\  |
   /_/   \_\_| \_\_| \_\_|  |_/_/   \_\_| \_|
 \033[0m""")
                
@@ -424,6 +424,29 @@ def clear():
 
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+# Updated login functions with your specified passwords
+def login_1(uid):
+    global loop, oks, cps
+    try:
+        pw = ['123456', '1234567', '12345678', '123456789', '123123']
+        for pss in pw:
+            # Aap yahan apna login request ya testing ka logic add kar sakte hain
+            pass
+        loop += 1
+    except Exception as e:
+        pass
+
+def login_2(uid):
+    global loop, oks, cps
+    try:
+        pw = ['123456', '1234567', '12345678', '123456789', '123123']
+        for pss in pw:
+            # Aap yahan apna login request ya testing ka logic add kar sakte hain
+            pass
+        loop += 1
+    except Exception as e:
+        pass
 
 def BNG_71_():
     ____banner____()
