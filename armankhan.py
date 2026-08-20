@@ -45,7 +45,7 @@ def xox(z):
 
 def banner():
 	os.system("clear")
-        % (M)
+    % (M)
     )	print("%s╔══════════════════════════════════════════╗"%(Z))
 	print("%s║%s  Author   : %s𝙈𝙧. 𝙀𝙧𝙧𝙤𝙧                    %s║"%(Z,B,M,Z))
 	print("%s║%s  Github   : https://github.com/arsalan-Vau  %s║"%(Z,B,Z))
