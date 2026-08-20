@@ -259,7 +259,7 @@ def old_Tree():
     with tred(max_workers=30) as pool:
         ____banner____()
         print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G}{limit}{W}")
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
         for uid in user:
             if meth in ('A', 'B'):
@@ -331,7 +331,7 @@ def cracker(user):
 			else:
 				continue
 		loop+=1
-		sys.stdout.write(f"\r {Z}[{H}{loop}{P}-{M}L{Z}] {Z}[{H}{len(oks)}{Z}] \r"),
+		sys.stdout.write(f"\r {Z}[{H}CRACKING{Z}] [{H}{loop}{P}-{M}Checked{Z}] [{H}OK:{len(oks)}{Z}] \r")
 		sys.stdout.flush()
 
 	except Exception as e:
