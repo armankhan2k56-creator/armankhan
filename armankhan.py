@@ -139,46 +139,50 @@ def Public():
 	elif pil in ['2','02']:
 		try:     
            
-	    	 headers={
-                'authority': 'graph.facebook.com',
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-                'accept-language': 'en-US,en;q=0.9',
-                'cache-control': 'max-age=0',
-                # 'cookie': 'datr=2NaFaiEXCBo0n67wy3IHz-Jl; sb=2NaF...',
-                'dpr': '2',
-                'sec-ch-prefers-color-scheme': 'light',
-                'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
-                'sec-ch-ua-full-version-list': '"Chromium";v="139.0.0.0"',
-                'sec-ch-ua-mobile': '?1',
-                'sec-ch-ua-model': '"TECNO KM5"',
-                'sec-ch-ua-platform': '"Android"',
-                'sec-ch-ua-platform-version': '"15.0.0"',
-                'sec-fetch-dest': 'document',
-                'sec-fetch-mode': 'navigate',
-                'sec-fetch-site': 'same-origin',
-                'sec-fetch-user': '?1',
-                'upgrade-insecure-requests': '1',
-                'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
-                'viewport-width': '980',
-            }
-            open(".token.txt", "w").write(find_token)
-            print(" [] Login Successful")
-            login()
-        except Exception as e:
-           os.system("rm -f .token.txt")
-           print(' [x] Login Failed ')
-           time.sleep(2.5)
-           login()
-           exit()
-	try:
-		token = open('.token.txt','r').read()
-	except IOError:
-		exit()
-	clear()
-	print(logo)
-	pil = input('\n [+] Enter ID Target : ')
-	try:
-		koh2 = requests.get('https://graph.facebook.com/v2.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0]).json()
+	     headers={
+            'authority': 'graph.facebook.com',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'max-age=0',
+            # 'cookie': 'datr=2NaFaiEXCBo0n67wy3I',
+            'dpr': '2',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Chromium";v="139", "Not?A_Brand";v="8"',
+            'sec-ch-ua-full-version-list': '"Chromium";v="139"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-model': '"TECNO KM5"',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-ch-ua-platform-version': '"15.0.0"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Linux; Android 10; K)',
+            'viewport-width': '980',
+        }
+        open(".token.txt", "w").write(find_token)
+        print(" [] Login Successful")
+        login()
+    except Exception as e:
+        os.system("rm -f .token.txt")
+        print(' [x] Login Failed ')
+        time.sleep(2.5)
+        login()
+        exit()
+
+try:
+    token = open('.token.txt', 'r').read()
+except IOError:
+    exit()
+
+clear()
+print(logo)
+fil = input('\n [+] Enter ID Target : ')
+
+try:
+    koh2 = requests.get('https://graph.facebook.com/'...
+ /v2.0/'+pil+'?fields=friends.limit(5000)&access_token='+tokenku[0]).json()
 		for pi in koh2['friends']['data']:
 			id.append(pi['id']+'|'+pi['name'])
 		print(' [] Total : '+str(len(id)))
