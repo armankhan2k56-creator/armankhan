@@ -93,12 +93,11 @@ def linex():
 	print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\x1b[0m')
 
 def result(OK):
-	if len(OK) != 0:
-		print("\n\n\033[94;1m THE PROCESS HAS BEEN COMPLETED")
-		print("\033[93;1m TOTAL \033[92;1mOK: %s"%(str(len(OK))))
-		os.sys.exit()
-	else:
-		print('\n\n [%s!%s] NO RESULT'%(H,H));exit()
+	print("\n\n\033[94;1m THE PROCESS HAS BEEN COMPLETED")
+	print("\033[93;1m TOTAL \033[92;1mOK : %s"%(str(len(OK))))
+	print("\033[93;1m TOTAL \033[91;1mCP : %s"%(str(len(cps))))
+	input(f"\n{H} PRESS ENTER TO BACK ")
+	arsalanvau()
 
 def arsalanvau():
 	os.system('clear')
@@ -149,11 +148,8 @@ def old_One():
     
     with tred(max_workers=30) as pool:
         for uid in user:
-            if meth in ('A', 'B'):
-                pool.submit(cracker, uid)
-            else:
-                print(f"    {rad}[!] INVALID METHOD SELECTED")
-                break
+            pool.submit(cracker, uid)
+            
     result(oks)
 
 def cracker(user):
@@ -222,7 +218,7 @@ def cracker(user):
 				continue
 		
 		loop += 1
-		sys.stdout.write(f"\r\033[1;31m+(\033[1;37mAHB-M1\033[1;31m)\033[1;37m(\033[1;33m{loop}\033[1;37m)\033[1;31m(\033[1;32m{len(oks)}\033[1;31m)\033[1;37m(\033[1;31m{len(cps)}\033[1;37m)")
+		sys.stdout.write(f"\r\033[1;31m+(\033[1;37marsalan-M1\033[1;31m)\033[1;37m(\033[1;33m{loop}\033[1;37m)\033[1;31m(\033[1;32m{len(oks)}\033[1;31m)\033[1;37m(\033[1;31m{len(cps)}\033[1;37m)")
 		sys.stdout.flush()
 
 	except Exception as e:
