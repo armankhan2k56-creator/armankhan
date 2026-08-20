@@ -478,7 +478,7 @@ def old_One():
     with tred(max_workers=30) as pool:
         ____banner____()
         print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+        open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
                 elif 'session_key' in po:
