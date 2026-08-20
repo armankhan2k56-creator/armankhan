@@ -161,15 +161,15 @@ def Public():
                 'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
                 'viewport-width': '980',
             }
-            ken=open(".token.txt", "w").write(find_token)
-            print (" [] Login Successful")
-            login()
-        except Exception as e:
-            os.system("rm -f .token.txt")
-            print (' [×] Login Failed ')
-            time.sleep(2.5)
-            login()
-            exit()	
+                ken=open(".token.txt", "w").write(find_token)
+                print (" [] Login Successful")
+                login()
+                except Exception as e:
+                os.system("rm -f .token.txt")
+                print (' [×] Login Failed ')
+                time.sleep(2.5)
+                login()
+                exit()	
 	try:
 		token = open('.token.txt','r').read()
 	except IOError:
