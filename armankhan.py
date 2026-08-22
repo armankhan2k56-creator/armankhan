@@ -368,20 +368,31 @@ GS = '\x1b[38;5;40m'
 W = '\x1b[1;37m'
 
 def window1():
-    aV = str(random.choice(range(10, 20)))
-    A = f"Mozilla/5.0 (Windows; U; Windows NT {random.choice(range(6, 11))}.0; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.0 Safari/534.{aV}"
-    bV = str(random.choice(range(1, 36)))
-    bx = str(random.choice(range(34, 38)))
-    bz = f'5{bx}.{bV}'
-    B = f"Mozilla/5.0 (Windows NT {random.choice(range(6, 11))}.{random.choice(['0', '1'])}) AppleWebKit/{bz} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.{random.choice(range(50, 200))} Safari/{bz}"
-    cV = str(random.choice(range(1, 36)))
-    cx = str(random.choice(range(34, 38)))
-    cz = f'5{cx}.{cV}'
-    C = f"Mozilla/5.0 (Windows NT 6.{random.choice(['0', '1', '2'])}; WOW64) AppleWebKit/{cz} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.{random.choice(range(50, 200))} Safari/{cz}"
-    latest_build = rr(6000, 9000)
-    latest_patch = rr(100, 200)
-    D = f"Mozilla/5.0 (Windows NT {random.choice(['10.0', '11.0'])}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.{latest_build}.{latest_patch} Safari/537.36"
-    return random.choice([A, B, C, D])
+    # Updated Modern User-Agents (Android/Windows Chrome variants for 2026)
+    android_versions = ["13.0", "14.0", "15.0", "16.0"]
+    devices = [
+        "Samsung Galaxy S24 Ultra", "Samsung Galaxy S25", "Xiaomi 14 Pro", 
+        "Google Pixel 8 Pro", "Google Pixel 9", "OnePlus 12", "Vivo X100"
+    ]
+    fb_versions = ["440.0.0.32.118", "450.0.0.25.75", "460.0.0.40.90", "471.0.0.35.100"]
+    
+    ua_type = random.choice([1, 2, 3])
+    
+    if ua_type == 1:
+        # Modern Facebook Android App UA
+        av = random.choice(fb_versions)
+        an_ver = random.choice(android_versions)
+        dev = random.choice(devices)
+        return f"Dalvik/2.1.0 (Linux; U; Android {an_ver}; {dev} Build/UP1A.{random.randint(200000,900000)}.{random.randint(003,999)}) [FBAN/FB4A;FBAV/{av};FBBV/{random.randint(500000000,650000000)};FBDM{{density=3.0,width=1080,height=2400}};FBLC/en_US;FBRV/{random.randint(500000000,650000000)};FBCR/Jazz;FBMF/Google;FBBD/google;FBPN/com.facebook.katana;FBDV/{dev.replace(' ', '_')};FBSV/{an_ver};FBOP/1;FBCA/arm64-v8a:;]"
+    elif ua_type == 2:
+        # Modern Chrome Mobile UA
+        chrome_ver = random.choice(range(120, 142))
+        an_ver = random.choice(android_versions)
+        return f"Mozilla/5.0 (Linux; Android {an_ver}; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_ver}.0.{random.randint(4000,7000)}.{random.randint(50,200)} Mobile Safari/537.36"
+    else:
+        # Modern Windows Chrome UA
+        chrome_ver = random.choice(range(125, 142))
+        return f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_ver}.0.{random.randint(4000,7000)}.{random.randint(50,200)} Safari/537.36"
 
 sys.stdout.write('\x1b]2;{ Arman 👑 }\x07')
 
@@ -588,7 +599,7 @@ def login_1(uid):
             headers = {
                 "Host": "b-graph.facebook.com",
                 "Cache-Control": "max-age=0",
-                "Sec-Ch-Ua": '"Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"',
+                "Sec-Ch-Ua": '"Not/A)Brand";v="99", "Google Chrome";v="125", "Chromium";v="125"',
                 "Sec-Ch-Ua-Mobile": "?1",
                 "Sec-Ch-Ua-Platform": '"Android"',
                 "Upgrade-Insecure-Requests": "1",
