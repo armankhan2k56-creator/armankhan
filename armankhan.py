@@ -368,7 +368,6 @@ GS = '\x1b[38;5;40m'
 W = '\x1b[1;37m'
 
 def window1():
-    # Updated Modern User-Agents (Android/Windows Chrome variants for 2026)
     android_versions = ["13.0", "14.0", "15.0", "16.0"]
     devices = [
         "Samsung Galaxy S24 Ultra", "Samsung Galaxy S25", "Xiaomi 14 Pro", 
@@ -379,18 +378,15 @@ def window1():
     ua_type = random.choice([1, 2, 3])
     
     if ua_type == 1:
-        # Modern Facebook Android App UA
         av = random.choice(fb_versions)
         an_ver = random.choice(android_versions)
         dev = random.choice(devices)
-        return f"Dalvik/2.1.0 (Linux; U; Android {an_ver}; {dev} Build/UP1A.{random.randint(200000,900000)}.{random.randint(003,999)}) [FBAN/FB4A;FBAV/{av};FBBV/{random.randint(500000000,650000000)};FBDM{{density=3.0,width=1080,height=2400}};FBLC/en_US;FBRV/{random.randint(500000000,650000000)};FBCR/Jazz;FBMF/Google;FBBD/google;FBPN/com.facebook.katana;FBDV/{dev.replace(' ', '_')};FBSV/{an_ver};FBOP/1;FBCA/arm64-v8a:;]"
+        return f"Dalvik/2.1.0 (Linux; U; Android {an_ver}; {dev} Build/UP1A.{random.randint(200000,900000)}.{random.randint(100,999)}) [FBAN/FB4A;FBAV/{av};FBBV/{random.randint(500000000,650000000)};FBDM{{density=3.0,width=1080,height=2400}};FBLC/en_US;FBRV/{random.randint(500000000,650000000)};FBCR/Jazz;FBMF/Google;FBBD/google;FBPN/com.facebook.katana;FBDV/{dev.replace(' ', '_')};FBSV/{an_ver};FBOP/1;FBCA/arm64-v8a:;]"
     elif ua_type == 2:
-        # Modern Chrome Mobile UA
         chrome_ver = random.choice(range(120, 142))
         an_ver = random.choice(android_versions)
         return f"Mozilla/5.0 (Linux; Android {an_ver}; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_ver}.0.{random.randint(4000,7000)}.{random.randint(50,200)} Mobile Safari/537.36"
     else:
-        # Modern Windows Chrome UA
         chrome_ver = random.choice(range(125, 142))
         return f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome_ver}.0.{random.randint(4000,7000)}.{random.randint(50,200)} Safari/537.36"
 
