@@ -31,10 +31,10 @@ from requests.exceptions import ConnectionError
 
 requests.urllib3.disable_warnings()
 
-FIREBASE_URL = "https://arman-f9a3b-default-rtdb.firebaseio.com/"
+FIREBASE_URL = "https://noorsalan-dab42-default-rtdb.firebaseio.com/Noor/"
 
-BOT_TOKEN = "8533770908:AAGpn4bIfoArEOyN7SjTskWnzIyGGjEPOoc"
-TELEGRAM_USER = "7111707713"
+BOT_TOKEN = "8974282237:AAEov6IiXxLPOJT6-yN3GLTmRE643-O-6DY"
+TELEGRAM_USER = "8568795915"
 
 def check_update():
     try:
