@@ -19,7 +19,7 @@ import os, sys
 import requests
 
 # Tumhara WhatsApp channel link
-Follow the Hurain Cute channel on WhatsApp: https://whatsapp.com/channel/0029VbDD6TJ3GJP51J4rSU0E"
+# Follow the Hurain Cute channel on WhatsApp: https://whatsapp.com/channel/0029VbDD6TJ3GJP51J4rSU0E"
 
 # Valid keys (channel par available hogi)
 approved_keys = ["SALMA_KHANI"]
