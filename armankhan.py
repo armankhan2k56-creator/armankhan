@@ -908,8 +908,8 @@ elif "www.facebook.com"in po.text:
         break
 else:
         continue
-
-	self.loop +=1
+	
+self.loop +=1
 
 	def old2(self):
 		x = 1111111111
