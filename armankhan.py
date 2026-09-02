@@ -906,7 +906,7 @@ elif "www.facebook.com"in po.text:
         self.cp.append("%s|%s"%(uid, pw))
         open("2009-salma-OK.txt","a").write("%s|%s\n"%(uid, pw))
         break
-    else:
+else:
         continue
 
 		self.loop +=1
